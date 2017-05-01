@@ -1,0 +1,249 @@
+<!--START MAIN CONTENT -->
+<div class="main-content">
+    <!-- <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=Bogot%C3%A1%2C%20Colombia&destination=Facatativ%C3%A1%2C%20Colombia&key="></iframe> -->
+    <!--START BOOK FILTER -->
+    <?php echo $this->partial("application/comun/search.phtml"); ?>
+    <!--END BOOK FILTER -->
+    <!--START BOOK FILTER -->
+    <div class="travel-information container">
+        <?php echo $this->partial("application/comun/guia-trayecto.phtml"); ?>
+    	<section class="seats-list-results">
+    		<div class="ticket-details">
+    			<h2 class="ttl-1">Pasaje de ida</h2>
+
+    			<article class="cont-details">
+    				<div class="details-1">
+    					<ul class="list-details">
+    						<li>
+    							<h2 class="txt-2">Hora de salida</h2>
+    							<h3 class="txt-3"><?php echo $horaIda; ?></h3>
+    						</li>
+    						<li>
+    							<h2 class="txt-2">Hora de llegada</h2>
+    							<h3 class="txt-3">--</h3>
+    						</li>
+    						<li>
+    							<h2 class="txt-2">Fecha de ida</h2>
+    							<h3 class="txt-4"><?php echo $fechaIda; ?></h3>
+    						</li>
+    					</ul>
+    					<div class="seats-details">
+    						<div class="column-people">
+    							<p class="txt-1">
+    								<span class="icon-add-person-1"></span>Personas
+    							</p>
+    							<div class="travelers-counter">
+    								<span class="btn-counter btn-add">+</span>
+    								<p class="txt-number">
+    									2
+    								</p>
+    								<span class="btn-counter btn-sub">-</span>
+    							</div>
+    						</div>
+    						<div class="column-seats">
+    							<span class="icon-steering-wheel-1"></span>
+    							<div class="seats-position">
+    								<table>
+
+        								<?php
+                        			    $puestosOrigen = json_decode($puestosOrigen);
+    //                     			    echo "Total de puestos: " . $totalPuestosOrigen;
+    //                     			    echo "Total de puestos disponibles: " . $totalPuestosDisOrigen;
+    //                     			    var_dump($puestosOrigen);
+                        			    if (is_array($puestosOrigen->PuestoRodamientoTO)):
+                            			    foreach ($puestosOrigen->PuestoRodamientoTO as $key => $puesto):
+                            			        $disponible = $puesto->Disponible;
+                        			            $nPuesto = $puesto->Puesto;
+                        			            $disable = "disabled";
+                        			            $classState = "free";
+                        			            $onclick = 'onclick="seleccionarPuesto($(this))"';
+                        			            if ($disponible == "true"):
+                        			                $disable = "";
+                        			                $disponible = "Disponible";
+                        			            else:
+                        			                $disponible = "No disponible";
+                        			                $classState = "occupy";
+                        			                $onclick = "";
+                        			            endif;
+                        			            if ($key % 4 == 0):
+                        	                    ?>
+                                			    <tr>
+                                			    <?php
+                                			    endif;
+                                			    ?>
+                                					<td class="<?php echo $classState; ?>" <?php echo $onclick; ?> idRodamiento="<?php echo $idRodamientoIda; ?>" puesto="<?php echo $nPuesto; ?>" disp="<?php echo $puesto->Disponible; ?>">
+    <!--                             						<div class="cont-input check-2"> -->
+    <!--                         							<input class="checkbox-1" type="checkbox" value="Acepto" onclick="seleccionarPuesto($(this))" <?php // echo $disable; ?> /> -->
+    <!--                             							<span class="icon-checkmark-1"></span> -->
+    <!--                             						</div> -->
+                            							<?php echo $nPuesto; ?>
+                                					</td>
+    <!--                             					<td><p class="txt-2"> -->
+                                					<?php // echo $nPuesto; ?>
+    <!--                             					</p></td> -->
+    <!--                             					<td><p class="txt-4"> -->
+                                					<?php // echo $disponible; ?>
+    <!--                             					</p></td> -->
+                                				<?php
+                                				if ( ($key+1) % 4 == 0):
+                                				?>
+                                				</tr>
+                                				<?php
+                                				endif;
+                            			    endforeach;
+                        			    endif;
+                        			    ?>
+    								</table>
+    							</div>
+
+    							<ul class="list-floor">
+    								<li><button class="btn-5 active">PISO 1</button></li>
+    								<li><button class="btn-5" disabled> PISO 2</button></li>
+    							</ul>
+    						</div>
+    					</div>
+    				</div>
+    				<div class="details-2">
+    					<img src="/images/companies/rapido-ochoa.jpg" alt="Rapido Ochoa" width="100px" height="50px" />
+    					<h4 class="txt-5" id="valorPasaje" valor="<?php echo $valorPasajeIda; ?>">$<?php echo $valorPasajeIda; ?></h4>
+    				</div>
+    			</article>
+    		</div>
+    		<?php
+    		if ($puestosRegreso != "{}" && $puestosRegreso != null && $puestosRegreso != ""):
+    		?>
+        		<div class="ticket-details">
+        			<h2 class="ttl-1">Pasaje de regreso</h2>
+
+        			<article class="cont-details">
+        				<div class="details-1">
+        					<ul class="list-details">
+        						<li>
+        							<h2 class="txt-2">Hora de salida</h2>
+        							<h3 class="txt-3"><?php echo $horaRegreso; ?></h3>
+        						</li>
+        						<li>
+        							<h2 class="txt-2">Hora de llegada</h2>
+        							<h3 class="txt-3">--</h3>
+        						</li>
+        						<li>
+        							<h2 class="txt-2">Fecha de regreso</h2>
+        							<h3 class="txt-4"><?php echo $fechaRegreso; ?></h3>
+        						</li>
+        					</ul>
+        					<div class="seats-details">
+        						<div class="column-people">
+        							<p class="txt-1">
+        								<span class="icon-add-person-1"></span>Personas
+        							</p>
+        							<div class="travelers-counter">
+        								<span class="btn-counter btn-add">+</span>
+        								<p class="txt-number">
+        									2
+        								</p>
+        								<span class="btn-counter btn-sub">-</span>
+        							</div>
+        						</div>
+        						<div class="column-seats">
+        							<span class="icon-steering-wheel-1"></span>
+        							<div class="seats-position">
+        								<table>
+            								<?php
+                            			    $puestosRegreso = json_decode($puestosRegreso);
+        //                     			    echo "Total de puestos: " . $totalPuestosRegreso;
+        //                     			    echo "Total de puestos disponibles: " . $totalPuestosDisRegreso;
+                            			    if (is_array($puestosRegreso->PuestoRodamientoTO)):
+                                			    foreach ($puestosRegreso->PuestoRodamientoTO as $key => $puesto):
+                                			        $disponible = $puesto->Disponible;
+                            			            $nPuesto = $puesto->Puesto;
+                            			            $disable = "disabled";
+                            			            $classState = "free";
+                            			            $onclick = 'onclick="seleccionarPuesto($(this))"';
+                            			            if ($disponible == "true"):
+                            			                $disable = "";
+                            			                $disponible = "Disponible";
+                            			            else:
+                            			                $disponible = "No disponible";
+                            			                $classState = "occupy";
+                            			                $onclick = '';
+                            			            endif;
+                                    			    if ($key % 4 == 0):
+                            	                    ?>
+                                    			    <tr>
+                                    			    <?php
+                                    			    endif;
+                                    			    ?>
+                                    					<td class="<?php echo $classState; ?>" <?php echo $onclick; ?> idRodamiento="<?php echo $idRodamientoRegreso; ?>" puesto="<?php echo $nPuesto; ?>" disp="<?php echo $puesto->Disponible; ?>">
+        <!--                             						<div class="cont-input check-2"> -->
+        <!--                             							<input class="checkbox-1" type="checkbox" value="Acepto" onclick="seleccionarPuesto($(this))" <?php // echo $disable; ?>/> -->
+        <!--                             							<span class="icon-checkmark-1"></span> -->
+        <!--                             						</div> -->
+                                    						<?php echo $nPuesto; ?>
+                                    					</td>
+        <!--                             					<td><p class="txt-2"> -->
+                                    					<?php // echo $nPuesto; ?>
+        <!--                             					</p></td> -->
+        <!--                             					<td><p class="txt-4"> -->
+                                    					<?php // echo $disponible; ?>
+        <!--                             					</p></td> -->
+                                    				<?php
+                                    				if ( ($key+1) % 4 == 0):
+                                    				?>
+                                    				</tr>
+                                    				<?php
+                                    				endif;
+                                			    endforeach;
+                            			    endif;
+                            			    ?>
+        								</table>
+        							</div>
+        							<ul class="list-floor">
+        								<li><button class="btn-5 active">PISO 1</button></li>
+        								<li><button class="btn-5" disabled> PISO 2</button></li>
+        							</ul>
+        						</div>
+        					</div>
+        				</div>
+        				<div class="details-2">
+        					<img src="/images/companies/rapido-ochoa.jpg" alt="Rapido Ochoa" width="100px" height="50px" />
+        					<h4 class="txt-5" id="valorPasaje" valor="<?php echo $valorPasajeRegreso; ?>">$<?php echo $valorPasajeRegreso; ?></h4>
+        				</div>
+        			</article>
+        		</div>
+    		<?php
+    		endif;
+    		?>
+    		<div class="seats-conventions">
+        		<h3 class="txt-6">Seleccione su silla</h3>
+        		<ul class="list-conventions">
+        			<li>
+        				<span class="free"></span><h4 class="txt-7">Libre</h4>
+        			</li>
+        			<li>
+        				<span class="occupy"></span><h4 class="txt-7">Ocupado</h4>
+        			</li>
+        			<li>
+        				<span class="selected"></span><h4 class="txt-7">Seleccionada</h4>
+        			</li>
+        		</ul>
+        	</div>
+    		<div class="cont-results">
+    		    <h2 class="ttl-1">Total compra</h2>
+    		    <h3 class="txt-3" id="totalCompra" valor="0">$<?php echo $totalCompra; ?></h3>
+    		</div>
+    		<form action="/compra" method="post">
+    		    <input type="hidden" name="totalCompra" id="totalCompraForm" value="<?php echo $totalCompra; ?>" />
+    		    <input type="hidden" name="idReferencia" id="idReferencia" value="<?php echo $idReferenciaIda . "-" . $idReferenciaRegreso . "-" . rand(1000, 99999999); ?>" />
+    		    <input type="hidden" name="referencia" id="referencia" value="<?php echo $referenciaIda . " - " . $referenciaRegreso; ?>" />
+<!--         		<button class="btn-4 btn-continue-1"> -->
+        			<input type="submit" value="COMPRAR" class="btn-4 btn-continue-1" id="submitContinue" disabled />
+<!--         		</button> -->
+    		</form>
+    	</section>
+    	<!--END BOOK FILTER -->
+    </div>
+    <script>
+    $("body section.main-container:first").addClass("ticket-list");
+    </script>
+</div>
+<!--END MAIN CONTENT -->

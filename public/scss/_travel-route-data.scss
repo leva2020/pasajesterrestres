@@ -1,0 +1,115 @@
+.travel-route-data{
+	.cont-travel-data{
+		background-color: $white-1;
+		padding: 0 10px 20px;
+	}	
+	.general-data{
+		margin-bottom: 15px;
+		.cont-map{
+			border: 1px solid $gray-3;
+			margin: 0 -10px 20px;
+		}
+		.list-data{
+			border-bottom: 1px solid $gray-3;
+			padding-bottom: 15px;
+			display: table;
+			li{
+				display: table-cell;
+				text-align: center;
+				&:first-child{
+					padding-right:10px;
+				}
+				.txt-1{
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+	.travel-route{
+		.txt-1{
+			margin-bottom: 20px;
+		}
+		ul{
+			position: relative;
+			&:after{
+				content: "";
+				display: block;
+				border-left: 1px solid $gray-3;
+				position: absolute;
+				top: 10px;
+				bottom: 10px;
+				left: 7px;
+			}
+		}
+		
+		li{
+			color: $gray-2;
+			font-family: 'gidoleregular';
+			@include rem(16);
+			position: relative;
+			padding-left: 25px;
+			margin-bottom: 20px;
+			&:before{
+				content:"";				
+				width: 10px;
+				height: 10px;
+				display: inline-block;
+				@include border-radius(50%);
+				background-color: $yellow-1;
+				position: absolute;
+				left: 2px;
+				z-index: 10;
+			}
+
+			&:first-child,
+			&:last-child{
+				@include rem(20);				
+				&:before{					
+					width: 15px;
+					height: 15px;
+					left: 0;
+				}				
+			}
+		}
+	}
+
+	.ttl-1{
+		color: $gray-2;
+		font-family: 'gidoleregular';
+		@include rem(20);
+		margin-bottom: 20px;
+	}
+	.txt-1{
+		color: $gray-1;
+		font-family: 'gidoleregular';
+		@include rem(16);
+	}
+	.txt-2{
+		font-family: 'gidoleregular';
+		@include rem(24);
+		color: $yellow-1;
+	}
+}
+@media screen and (max-width:700px){
+	.travel-route-data{
+		.general-data,
+		.travel-route{
+			display: inline-block;
+			margin: 0 2%;
+			width: 45%;
+		}		
+		.travel-route{
+			padding-top: 20px;
+		}
+	}
+}
+
+@media screen and (max-width:480px){
+	.travel-route-data{
+		.general-data,
+		.travel-route{
+			margin: 0;
+			width: 100%;
+		}
+	}
+}

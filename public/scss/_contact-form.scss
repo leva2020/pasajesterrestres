@@ -1,0 +1,15 @@
+.contact-form{
+	background-color: #f5f5f5;
+	padding: 40px 0;
+
+	.ttl-form-1{
+		@include rem(24);
+		color: $yellow-1;
+		text-align: center;
+		margin-bottom: 40px;
+		font-family: 'gidoleregular';	
+	}
+	textarea{
+		height: 150px;
+	}
+}

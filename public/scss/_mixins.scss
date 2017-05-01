@@ -1,0 +1,37 @@
+@mixin ceet-clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/*======================================================
+Source: http://web-design-weekly.com/blog/2013/05/12/handy-sass-mixins/
+Convertir tamaño de fuente en REM con fallback en PX
+======================================================*/
+$browser-context: 16; // Default
+ 
+@function calulateRem($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}rem
+}
+
+@mixin rem($size) {
+  font-size: $size+px; //Fallback in px
+  font-size: calulateRem($size);
+}
+
+
+// ================================
+//      Colors Transparency
+//=================================
+@function hex-to-rgba ($color: #FFF, $opacity: 0.5) {
+  @return rgba(red($color), green($color), blue($color), $opacity);
+}

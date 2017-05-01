@@ -1,0 +1,317 @@
+.column-2{
+  display: inline-block;
+  width: 49%;
+}
+.bx-wrapper{
+  .bx-viewport{
+    @include box-shadow(0px 0px 0px);
+    border: 0;
+    left: 0;
+  }
+  .bx-pager{
+    bottom: 40%;
+    &.bx-default-pager{
+      a{
+        background-color: hex-to-rgba($white-1, 0.4);
+        border: 1px solid $white-1;
+        &:hover,
+        &.active{
+          background-color: $white-1; 
+        }
+      }
+    }
+  }
+}
+.main-container{
+	width: 100%;
+  background-color: $white-2;
+  .container{
+    max-width: 950px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+.divider-v1{
+  border-left: 1px solid $yellow-1; 
+  margin: 0 5px;
+}
+.btn-1{
+  background-color : $yellow-1;
+  border: 2px solid $yellow-lh-1;
+  @include border-radius(30px);
+  color: $yellow-dk-1;
+  cursor: pointer;
+  font-family: 'gidoleregular';
+  @include rem(16);
+  padding: 14px;
+  text-align: center;
+  &.active,
+  &:hover{
+    border-color: $white-1;
+    color: $gray-2;
+    background-color: $white-1;
+  }
+}
+
+.btn-2{
+  background-color : $gray-2;
+  border: 0;
+  @include border-radius(30px);
+  color: $white-1;
+  cursor: pointer;
+  font-family: 'gidoleregular';
+  @include rem(25);
+  padding: 10px;
+  text-align: center;
+  &.active,
+  &:hover{
+    color: $gray-2;
+    background-color: $white-1; 
+  }
+}
+
+.btn-3{
+  border: 0;
+  background-color : $white-1;
+  @include border-radius(5px);
+  color: $gray-2;
+  cursor: pointer;
+  font-family: 'gidoleregular';
+  @include rem(18);
+  padding: 15px;
+  text-align: center;
+  &.active,
+  &:hover{
+    color: $white-1;
+    background-color: $yellow-1; 
+  }
+}
+
+.btn-4{
+  background-color : $yellow-1;
+  border: 0;
+  @include border-radius(30px);
+  color: $white-1;
+  cursor: pointer;
+  font-family: 'gidoleregular';
+  @include rem(25);
+  padding: 10px 35px;
+  text-align: center;
+  &.active,
+  &:hover{
+    color: $gray-2;
+    background-color: $white-1; 
+  }
+}
+.btn-5{
+  background-color : $yellow-1;
+  border: 0;
+  @include border-radius(5px);
+  color: $white-1;
+  cursor: pointer;
+  font-family: 'gidoleregular';
+  @include rem(14);
+  padding: 8px;
+  text-align: center;
+  &.active,
+  &:hover{
+    color: $gray-2;
+    background-color: $white-1; 
+  }
+}
+.btn-fb-1,
+.btn-gp-1{
+  @include border-radius (15px);
+  color: #FFF;
+  display: inline-block;
+  font-family: 'gidoleregular';
+  @include rem(16);
+  padding: 17px 22px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.btn-fb-1{
+  background-color: #455896;
+}
+.btn-gp-1{
+  background-color: #b60b0b;
+}
+.inp-txt-1{
+  background-color: $white-1;
+  border: 0;
+  color: $gray-2;
+  display: inline-block;
+  @include rem(16);
+  font-family: 'gidoleregular';  
+  padding: 10px 10px;
+  @include border-radius(15px);
+}
+.txt-area-1{
+  background-color: $white-1;
+  border: 0;
+  color: $gray-2;
+  display: inline-block;
+  @include rem(16);
+  font-family: 'gidoleregular';  
+  padding: 10px 10px;
+  @include border-radius(15px);
+}
+.cont-inp-1{
+  position: relative;
+  .icon-marker-1 {
+    color: $yellow-1;
+    position: absolute;
+    left: 9px;
+    top: 11px;
+    @include rem(20);
+  }
+  .inp-txt-1{
+    @include border-radius(5px);
+    padding: 13px 10px 13px 30px;
+  }
+}
+.btn-calendar-1{
+  background-color: $white-1;
+  @include border-radius(5px);
+  color: $gray-2; 
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'gidoleregular';
+  padding: 7px 10px 7px 35px;
+  position: relative;
+  vertical-align: middle;
+
+  .icon-calendar-1 {
+    color: $yellow-1;
+    position: absolute;
+    left: 10px;
+    top: 11px;
+    @include rem(20);
+  }
+
+  [class^="txt-"], [class*=" txt-"]{
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .txt-1{
+    @include rem(18); 
+  }
+
+  .txt-2{
+    @include rem(30); 
+  }
+}
+.link-1{
+  color: $white-1;
+  cursor: pointer;
+  cursor: pointer;
+  @include rem(14);
+  font-family: 'gidoleregular'; 
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+.link-2{
+  color: $gray-2;
+  cursor: pointer;
+  @include rem(14);
+  font-family: 'gidoleregular';
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+.link-3{
+  color: $yellow-1;
+  cursor: pointer;
+  @include rem(14);
+  font-family: 'gidoleregular';
+  &:hover{
+    text-decoration: underline;
+  }
+}
+.cont-input{
+  position: relative;
+  .icon-checkmark-1{
+    color: $white-1;
+    background: $white-1;
+    @include border-radius(5px);
+    padding: 3px; 
+  }
+  input[type="checkbox"]{
+    position: absolute;
+    opacity: 0;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    cursor: pointer;
+    &:checked{
+      &+.icon-checkmark-1{
+        color: $yellow-1;
+      }
+    }
+  }
+  &.check-1{
+
+  }
+  &.check-2{
+    .icon-checkmark-1{
+      background: $white-2;
+    }
+    input[type="checkbox"]{
+      &:checked{
+        &+.icon-checkmark-1{
+          color: $white-1;
+          background-color: $yellow-1;
+        }
+      }
+    }
+  }
+} 
+.travel-route-data{
+  display: inline-block;
+  margin-right: 3%;
+  vertical-align: top;
+  width: 26%;
+}
+.ticket-list-results,
+.seats-list-results{
+  display: inline-block;
+  width: 70%;
+  vertical-align: top;
+}
+
+.travelers-counter{
+  background-color: $white-1;
+  color: $gray-2;
+  font-family: 'gidoleregular';
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
+  .txt-number{
+    font-family: 'gidole_playregular';
+    @include rem(48);
+  }
+  .btn-counter{
+    color: $gray-1;
+    cursor: pointer;
+    @include rem(48);
+    position: absolute;
+    top: 10%;
+  }
+  .btn-add{
+    right: 5px;
+  }
+  .btn-sub{
+    left: 5px;
+  }
+}
+@media screen and (max-width:500px){
+  .column-2{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+

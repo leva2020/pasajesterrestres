@@ -1,0 +1,89 @@
+.general-forms{
+	text-align: center;
+
+	margin: 0 auto;
+	max-width: 500px;
+	padding: 75px 0;
+	.inputs-block{
+		margin-bottom: 	10px;
+		.txt-2{
+			margin-bottom: 	10px;
+		}	
+	}
+	.social-login{
+		margin-bottom: 40px;
+		padding-bottom: 40px;
+		border-bottom: 1px solid #ddd;
+	}
+	form{
+		display: block;
+		max-width: 310px;
+		margin: 0 auto;
+		input{
+			&:not([type="submit"]):not([type="checkbox"]){
+				@include border-radius(5px);
+				padding: 16px 30px;
+				width: 100%;
+			}
+			&[type="submit"]{
+				display: block;
+				margin: 0 auto 20px;
+			}
+		}
+		textarea{
+			width: 100%;
+			@include border-radius(5px);
+		}
+		.error-inp{
+			input,
+			textarea{
+				border: 1px solid #bb1b1b;
+			}
+		}
+		.cont-input-txt{
+			display: inline-block;
+			margin-bottom: 20px;
+			position: relative;
+			width: 100%;
+			[class*="icon-"]{
+				color: $yellow-1;
+				position: absolute;
+				left: 10px;
+				top: 15px;
+			}
+		}
+		.cont-input{
+			display: inline-block;
+			margin-bottom: 20px;
+			width: 100%;
+			.icon-checkmark-1{
+				background-color: #f1b70e;
+				color: #FFF;
+			}
+			.link-3{
+				float: right;
+			}
+		}
+		
+	}
+	.txt-1{
+		color: #f1b70e;
+		font-family: 'gidoleregular';
+		@include rem(14);
+	}
+	.txt-2{
+		color: #444;
+		font-family: 'gidoleregular';
+		@include rem(14);
+	}
+	.register-opt{
+		text-align: center;
+	}
+	.txt-err-1{
+	    color:#b60b0b;
+	    @include rem(13);
+	    font-family: 'gidoleregular'; 
+	    display: inline-block;
+	    margin-top: 10px;
+  	}
+}

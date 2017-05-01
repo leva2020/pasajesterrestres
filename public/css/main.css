@@ -1,0 +1,2160 @@
+@charset "UTF-8";
+/*======================================================
+Source: http://web-design-weekly.com/blog/2013/05/12/handy-sass-mixins/
+Convertir tamaño de fuente en REM con fallback en PX
+======================================================*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 6, ../scss/_reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 27, ../scss/_reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 31, ../scss/_reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 34, ../scss/_reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 37, ../scss/_reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 40, ../scss/_reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 45, ../scss/_reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 49, ../scss/_reset.scss */
+html {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 52, ../scss/_reset.scss */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 55, ../scss/_reset.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 58, ../scss/_reset.scss */
+video {
+  display: block;
+}
+
+/* Main COLORS */
+/* Non Common Colors*/
+@font-face {
+  font-family: 'gidole_playregular';
+  src: url("../fonts/gidoleplay-regular-webfont.woff") format("woff"), url("../fonts/gidoleplay-regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'gidoleregular';
+  src: url("../fonts/gidole-regular-webfont.woff") format("woff"), url("../fonts/gidole-regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'icons-fonts-1';
+  src: url("../fonts/icons-fonts-1.woff?r9rx3i") format("woff"), url("../fonts/icons-fonts-1.ttf?r9rx3i") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 9, ../scss/_icons.scss */
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icons-fonts-1';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 22, ../scss/_icons.scss */
+.icon-steering-wheel-1:before {
+  content: "\e60b";
+}
+
+/* line 25, ../scss/_icons.scss */
+.icon-compass-arrow-1:before {
+  content: "\e600";
+}
+
+/* line 29, ../scss/_icons.scss */
+.icon-facebook-1:before {
+  content: "\e601";
+}
+
+/* line 33, ../scss/_icons.scss */
+.icon-twitter-1:before {
+  content: "\e602";
+}
+
+/* line 36, ../scss/_icons.scss */
+.icon-google-1:before {
+  content: "\e60f";
+}
+
+/* line 39, ../scss/_icons.scss */
+.icon-add-1:before {
+  content: "\e603";
+}
+
+/* line 43, ../scss/_icons.scss */
+.icon-marker-1:before {
+  content: "\e604";
+}
+
+/* line 47, ../scss/_icons.scss */
+.icon-arrow-round-down-1:before {
+  content: "\e605";
+}
+
+/* line 51, ../scss/_icons.scss */
+.icon-add-person-1:before {
+  content: "\e606";
+}
+
+/* line 55, ../scss/_icons.scss */
+.icon-calendar-1:before {
+  content: "\e607";
+}
+
+/* line 59, ../scss/_icons.scss */
+.icon-ticket-1:before {
+  content: "\e608";
+}
+
+/* line 63, ../scss/_icons.scss */
+.icon-tickets-1:before {
+  content: "\e609";
+}
+
+/* line 67, ../scss/_icons.scss */
+.icon-phone-1:before {
+  content: "\e60a";
+}
+
+/* line 70, ../scss/_icons.scss */
+.icon-checkmark-1:before {
+  content: "\e60c";
+}
+
+/* line 74, ../scss/_icons.scss */
+.icon-lock-1:before {
+  content: "\e60d";
+}
+
+/* line 77, ../scss/_icons.scss */
+.icon-person-1:before {
+  content: "\e60e";
+}
+
+/**
+ * BxSlider v4.1.2 - Fully loaded, responsive content slider
+ * http://bxslider.com
+ *
+ * Written by: Steven Wanderski, 2014
+ * http://stevenwanderski.com
+ * (while drinking Belgian ales and listening to jazz)
+ *
+ * CEO and founder of bxCreative, LTD
+ * http://bxcreative.com
+ */
+/** RESET AND LAYOUT
+===================================*/
+/* line 17, ../scss/_bx-slider.scss */
+.bx-wrapper {
+  position: relative;
+  margin: 0 auto 60px;
+  padding: 0;
+  *zoom: 1;
+}
+
+/* line 24, ../scss/_bx-slider.scss */
+.bx-wrapper img {
+  max-width: 100%;
+  display: block;
+}
+
+/** THEME
+===================================*/
+/* line 32, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-viewport {
+  -moz-box-shadow: 0 0 5px #ccc;
+  -webkit-box-shadow: 0 0 5px #ccc;
+  box-shadow: 0 0 5px #ccc;
+  border: 5px solid #fff;
+  left: -5px;
+  background: #fff;
+  /*fix other elements on the page moving (on Chrome)*/
+  -webkit-transform: translatez(0);
+  -moz-transform: translatez(0);
+  -ms-transform: translatez(0);
+  -o-transform: translatez(0);
+  transform: translatez(0);
+}
+
+/* line 48, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto {
+  position: absolute;
+  bottom: -30px;
+  width: 100%;
+}
+
+/* LOADER */
+/* line 57, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-loading {
+  min-height: 50px;
+  background: url(/images/bx_loader.gif) center center no-repeat #fff;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+}
+
+/* PAGER */
+/* line 70, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-pager {
+  text-align: center;
+  font-size: .85em;
+  font-family: Arial;
+  font-weight: bold;
+  color: #666;
+  padding-top: 20px;
+}
+
+/* line 79, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-pager .bx-pager-item,
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+}
+
+/* line 86, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-pager.bx-default-pager a {
+  background: #666;
+  text-indent: -9999px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  outline: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 99, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {
+  background: #000;
+}
+
+/* DIRECTION CONTROLS (NEXT / PREV) */
+/* line 106, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-prev {
+  left: 10px;
+  background: url(/images/controls.png) no-repeat 0 -32px;
+}
+
+/* line 111, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-next {
+  right: 10px;
+  background: url(/images/controls.png) no-repeat -43px -32px;
+}
+
+/* line 116, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-prev:hover {
+  background-position: 0 0;
+}
+
+/* line 120, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-next:hover {
+  background-position: -43px 0;
+}
+
+/* line 124, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-controls-direction a {
+  position: absolute;
+  top: 50%;
+  margin-top: -16px;
+  outline: 0;
+  width: 32px;
+  height: 32px;
+  text-indent: -9999px;
+  z-index: 9999;
+}
+
+/* line 135, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-controls-direction a.disabled {
+  display: none;
+}
+
+/* AUTO CONTROLS (START / STOP) */
+/* line 141, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-controls-auto {
+  text-align: center;
+}
+
+/* line 145, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-controls-auto .bx-start {
+  display: block;
+  text-indent: -9999px;
+  width: 10px;
+  height: 11px;
+  outline: 0;
+  background: url(/images/controls.png) -86px -11px no-repeat;
+  margin: 0 3px;
+}
+
+/* line 155, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-controls-auto .bx-start:hover,
+.bx-wrapper .bx-controls-auto .bx-start.active {
+  background-position: -86px 0;
+}
+
+/* line 160, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-controls-auto .bx-stop {
+  display: block;
+  text-indent: -9999px;
+  width: 9px;
+  height: 11px;
+  outline: 0;
+  background: url(/images/controls.png) -86px -44px no-repeat;
+  margin: 0 3px;
+}
+
+/* line 170, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-controls-auto .bx-stop:hover,
+.bx-wrapper .bx-controls-auto .bx-stop.active {
+  background-position: -86px -33px;
+}
+
+/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+/* line 177, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+  text-align: left;
+  width: 80%;
+}
+
+/* line 182, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+  right: 0;
+  width: 35px;
+}
+
+/* IMAGE CAPTIONS */
+/* line 189, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #666 \9;
+  background: rgba(80, 80, 80, 0.75);
+  width: 100%;
+}
+
+/* line 198, ../scss/_bx-slider.scss */
+.bx-wrapper .bx-caption span {
+  color: #fff;
+  font-family: Arial;
+  display: block;
+  font-size: .85em;
+  padding: 10px;
+}
+
+/* line 1, ../scss/_generales.scss */
+.column-2 {
+  display: inline-block;
+  width: 49%;
+}
+
+/* line 6, ../scss/_generales.scss */
+.bx-wrapper .bx-viewport {
+  -moz-box-shadow: 0px 0px 0px;
+  -webkit-box-shadow: 0px 0px 0px;
+  box-shadow: 0px 0px 0px;
+  border: 0;
+  left: 0;
+}
+/* line 11, ../scss/_generales.scss */
+.bx-wrapper .bx-pager {
+  bottom: 40%;
+}
+/* line 14, ../scss/_generales.scss */
+.bx-wrapper .bx-pager.bx-default-pager a {
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid #FFF;
+}
+/* line 17, ../scss/_generales.scss */
+.bx-wrapper .bx-pager.bx-default-pager a:hover, .bx-wrapper .bx-pager.bx-default-pager a.active {
+  background-color: #FFF;
+}
+
+/* line 25, ../scss/_generales.scss */
+.main-container {
+  width: 100%;
+  background-color: #f5f5f5;
+}
+/* line 28, ../scss/_generales.scss */
+.main-container .container {
+  max-width: 950px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* line 34, ../scss/_generales.scss */
+.divider-v1 {
+  border-left: 1px solid #f1b70e;
+  margin: 0 5px;
+}
+
+/* line 38, ../scss/_generales.scss */
+.btn-1 {
+  background-color: #f1b70e;
+  border: 2px solid #f4cd57;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  color: #997d2b;
+  cursor: pointer;
+  font-family: 'gidoleregular';
+  font-size: 16px;
+  font-size: 1rem;
+  padding: 14px;
+  text-align: center;
+}
+/* line 48, ../scss/_generales.scss */
+.btn-1.active, .btn-1:hover {
+  border-color: #FFF;
+  color: #444;
+  background-color: #FFF;
+}
+
+/* line 56, ../scss/_generales.scss */
+.btn-2 {
+  background-color: #444;
+  border: 0;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  color: #FFF;
+  cursor: pointer;
+  font-family: 'gidoleregular';
+  font-size: 25px;
+  font-size: 1.5625rem;
+  padding: 10px;
+  text-align: center;
+}
+/* line 66, ../scss/_generales.scss */
+.btn-2.active, .btn-2:hover {
+  color: #444;
+  background-color: #FFF;
+}
+
+/* line 73, ../scss/_generales.scss */
+.btn-3 {
+  border: 0;
+  background-color: #FFF;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: #444;
+  cursor: pointer;
+  font-family: 'gidoleregular';
+  font-size: 18px;
+  font-size: 1.125rem;
+  padding: 15px;
+  text-align: center;
+}
+/* line 83, ../scss/_generales.scss */
+.btn-3.active, .btn-3:hover {
+  color: #FFF;
+  background-color: #f1b70e;
+}
+
+/* line 90, ../scss/_generales.scss */
+.btn-4 {
+  background-color: #f1b70e;
+  border: 0;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  color: #FFF;
+  cursor: pointer;
+  font-family: 'gidoleregular';
+  font-size: 25px;
+  font-size: 1.5625rem;
+  padding: 10px 35px;
+  text-align: center;
+}
+/* line 100, ../scss/_generales.scss */
+.btn-4.active, .btn-4:hover {
+  color: #444;
+  background-color: #FFF;
+}
+
+/* line 106, ../scss/_generales.scss */
+.btn-5 {
+  background-color: #f1b70e;
+  border: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: #FFF;
+  cursor: pointer;
+  font-family: 'gidoleregular';
+  font-size: 14px;
+  font-size: 0.875rem;
+  padding: 8px;
+  text-align: center;
+}
+/* line 116, ../scss/_generales.scss */
+.btn-5.active, .btn-5:hover {
+  color: #444;
+  background-color: #FFF;
+}
+
+/* line 122, ../scss/_generales.scss */
+.btn-fb-1,
+.btn-gp-1 {
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  color: #FFF;
+  display: inline-block;
+  font-family: 'gidoleregular';
+  font-size: 16px;
+  font-size: 1rem;
+  padding: 17px 22px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* line 133, ../scss/_generales.scss */
+.btn-fb-1 {
+  background-color: #455896;
+}
+
+/* line 136, ../scss/_generales.scss */
+.btn-gp-1 {
+  background-color: #b60b0b;
+}
+
+/* line 139, ../scss/_generales.scss */
+.inp-txt-1 {
+  background-color: #FFF;
+  border: 0;
+  color: #444;
+  display: inline-block;
+  font-size: 16px;
+  font-size: 1rem;
+  font-family: 'gidoleregular';
+  padding: 10px 10px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+}
+
+/* line 149, ../scss/_generales.scss */
+.txt-area-1 {
+  background-color: #FFF;
+  border: 0;
+  color: #444;
+  display: inline-block;
+  font-size: 16px;
+  font-size: 1rem;
+  font-family: 'gidoleregular';
+  padding: 10px 10px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+}
+
+/* line 159, ../scss/_generales.scss */
+.cont-inp-1 {
+  position: relative;
+}
+/* line 161, ../scss/_generales.scss */
+.cont-inp-1 .icon-marker-1 {
+  color: #f1b70e;
+  position: absolute;
+  left: 9px;
+  top: 11px;
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+/* line 168, ../scss/_generales.scss */
+.cont-inp-1 .inp-txt-1 {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 13px 10px 13px 30px;
+}
+
+/* line 173, ../scss/_generales.scss */
+.btn-calendar-1 {
+  background-color: #FFF;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: #444;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'gidoleregular';
+  padding: 7px 10px 7px 35px;
+  position: relative;
+  vertical-align: middle;
+}
+/* line 184, ../scss/_generales.scss */
+.btn-calendar-1 .icon-calendar-1 {
+  color: #f1b70e;
+  position: absolute;
+  left: 10px;
+  top: 11px;
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+/* line 192, ../scss/_generales.scss */
+.btn-calendar-1 [class^="txt-"], .btn-calendar-1 [class*=" txt-"] {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 197, ../scss/_generales.scss */
+.btn-calendar-1 .txt-1 {
+  font-size: 18px;
+  font-size: 1.125rem;
+}
+/* line 201, ../scss/_generales.scss */
+.btn-calendar-1 .txt-2 {
+  font-size: 30px;
+  font-size: 1.875rem;
+}
+
+/* line 205, ../scss/_generales.scss */
+.link-1 {
+  color: #FFF;
+  cursor: pointer;
+  cursor: pointer;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-family: 'gidoleregular';
+}
+/* line 211, ../scss/_generales.scss */
+.link-1:hover {
+  text-decoration: underline;
+}
+
+/* line 216, ../scss/_generales.scss */
+.link-2 {
+  color: #444;
+  cursor: pointer;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-family: 'gidoleregular';
+}
+/* line 221, ../scss/_generales.scss */
+.link-2:hover {
+  text-decoration: underline;
+}
+
+/* line 226, ../scss/_generales.scss */
+.link-3 {
+  color: #f1b70e;
+  cursor: pointer;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-family: 'gidoleregular';
+}
+/* line 231, ../scss/_generales.scss */
+.link-3:hover {
+  text-decoration: underline;
+}
+
+/* line 235, ../scss/_generales.scss */
+.cont-input {
+  position: relative;
+}
+/* line 237, ../scss/_generales.scss */
+.cont-input .icon-checkmark-1 {
+  color: #FFF;
+  background: #FFF;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 3px;
+}
+/* line 243, ../scss/_generales.scss */
+.cont-input input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  cursor: pointer;
+}
+/* line 251, ../scss/_generales.scss */
+.cont-input input[type="checkbox"]:checked + .icon-checkmark-1 {
+  color: #f1b70e;
+}
+/* line 260, ../scss/_generales.scss */
+.cont-input.check-2 .icon-checkmark-1 {
+  background: #f5f5f5;
+}
+/* line 265, ../scss/_generales.scss */
+.cont-input.check-2 input[type="checkbox"]:checked + .icon-checkmark-1 {
+  color: #FFF;
+  background-color: #f1b70e;
+}
+
+/* line 273, ../scss/_generales.scss */
+.travel-route-data {
+  display: inline-block;
+  margin-right: 3%;
+  vertical-align: top;
+  width: 26%;
+}
+
+/* line 279, ../scss/_generales.scss */
+.ticket-list-results,
+.seats-list-results {
+  display: inline-block;
+  width: 70%;
+  vertical-align: top;
+}
+
+/* line 286, ../scss/_generales.scss */
+.travelers-counter {
+  background-color: #FFF;
+  color: #444;
+  font-family: 'gidoleregular';
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+/* line 293, ../scss/_generales.scss */
+.travelers-counter .txt-number {
+  font-family: 'gidole_playregular';
+  font-size: 48px;
+  font-size: 3rem;
+}
+/* line 297, ../scss/_generales.scss */
+.travelers-counter .btn-counter {
+  color: #999;
+  cursor: pointer;
+  font-size: 48px;
+  font-size: 3rem;
+  position: absolute;
+  top: 10%;
+}
+/* line 304, ../scss/_generales.scss */
+.travelers-counter .btn-add {
+  right: 5px;
+}
+/* line 307, ../scss/_generales.scss */
+.travelers-counter .btn-sub {
+  left: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  /* line 312, ../scss/_generales.scss */
+  .column-2 {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+/* line 1, ../scss/_header.scss */
+.header-container {
+  background: #FFF;
+  padding: 10px;
+}
+/* line 4, ../scss/_header.scss */
+.header-container .main-logo {
+  font-size: 0;
+}
+/* line 6, ../scss/_header.scss */
+.header-container .main-logo img {
+  max-width: 290px;
+}
+/* line 10, ../scss/_header.scss */
+.header-container .main-logo,
+.header-container .info {
+  display: inline-block;
+  width: 49%;
+  vertical-align: middle;
+}
+/* line 16, ../scss/_header.scss */
+.header-container .info {
+  text-align: right;
+}
+
+/* line 21, ../scss/_header.scss */
+.info .txt-1 {
+  color: #f1b70e;
+  font-family: 'gidole_playregular';
+  font-size: 36px;
+  font-size: 2.25rem;
+}
+/* line 26, ../scss/_header.scss */
+.info .txt-2 {
+  color: #999;
+  font-family: 'gidoleregular';
+  font-size: 13px;
+  font-size: 0.8125rem;
+}
+
+@media screen and (max-width: 700px) {
+  /* line 35, ../scss/_header.scss */
+  .header-container .main-logo img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* line 44, ../scss/_header.scss */
+  .info .txt-1 {
+    font-size: 25px;
+    font-size: 1.5625rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  /* line 51, ../scss/_header.scss */
+  .header-container .main-logo,
+  .header-container .info {
+    width: 100%;
+    text-align: center;
+  }
+  /* line 56, ../scss/_header.scss */
+  .header-container .main-logo {
+    margin-bottom: 10px;
+  }
+  /* line 58, ../scss/_header.scss */
+  .header-container .main-logo img {
+    max-width: 200px;
+  }
+}
+/* line 1, ../scss/_weather-slider.scss */
+.weather-container {
+  position: relative;
+}
+/* line 4, ../scss/_weather-slider.scss */
+.weather-container li img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+/* line 10, ../scss/_weather-slider.scss */
+.weather-container .bx-wrapper {
+  margin-bottom: 0;
+}
+/* line 13, ../scss/_weather-slider.scss */
+.weather-container .txt-city {
+  color: #FFF;
+  font-family: 'gidoleregular';
+  font-size: 14px;
+  font-size: 0.875rem;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+/* line 21, ../scss/_weather-slider.scss */
+.weather-container .weather-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+  text-align: center;
+}
+
+/* line 31, ../scss/_weather-slider.scss */
+.weather-info .txt-1 {
+  color: #FFF;
+  font-family: 'gidoleregular';
+  font-size: 16px;
+  font-size: 1rem;
+}
+/* line 36, ../scss/_weather-slider.scss */
+.weather-info .txt-2 {
+  color: #FFF;
+  font-family: 'gidole_playregular';
+  font-size: 80px;
+  font-size: 5rem;
+}
+
+@media screen and (max-width: 700px) {
+  /* line 43, ../scss/_weather-slider.scss */
+  .weather-container {
+    min-height: 250px;
+  }
+  /* line 45, ../scss/_weather-slider.scss */
+  .weather-container img {
+    min-height: 250px;
+  }
+}
+/* line 1, ../scss/_book-trip-search.scss */
+.book-trip-container {
+  margin: -12% 0 35px;
+  z-index: 1;
+  position: relative;
+}
+/* line 5, ../scss/_book-trip-search.scss */
+.book-trip-container .book-trip-search {
+  padding: 30px;
+  background: #f1b70e;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 10, ../scss/_book-trip-search.scss */
+.book-trip-container .txt-1 {
+  color: #FFF;
+  font-family: 'gidoleregular';
+  font-size: 16px;
+  font-size: 1rem;
+}
+/* line 16, ../scss/_book-trip-search.scss */
+.book-trip-container .date-selection,
+.book-trip-container .travelers-counter {
+  background: #FFF;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 10px;
+}
+/* line 22, ../scss/_book-trip-search.scss */
+.book-trip-container .date-selection {
+  color: #444;
+  cursor: pointer;
+  font-family: 'gidoleregular';
+  text-align: center;
+}
+/* line 27, ../scss/_book-trip-search.scss */
+.book-trip-container .date-selection .txt-month {
+  font-size: 16px;
+  font-size: 1rem;
+}
+/* line 30, ../scss/_book-trip-search.scss */
+.book-trip-container .date-selection .txt-date {
+  font-size: 60px;
+  font-size: 3.75rem;
+  font-family: 'gidole_playregular';
+}
+/* line 34, ../scss/_book-trip-search.scss */
+.book-trip-container .date-selection .txt-day {
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+/* line 40, ../scss/_book-trip-search.scss */
+.book-trip-container .ticket-options {
+  margin: 0 auto 30px;
+  width: 100%;
+  max-width: 580px;
+}
+/* line 44, ../scss/_book-trip-search.scss */
+.book-trip-container .ticket-options .btn-1 {
+  width: 49%;
+  display: inline-block;
+  max-width: 260px;
+}
+/* line 48, ../scss/_book-trip-search.scss */
+.book-trip-container .ticket-options .btn-1 .icon-tickets-1 {
+  font-size: 40px;
+  font-size: 2.5rem;
+  vertical-align: middle;
+  line-height: 0;
+}
+/* line 53, ../scss/_book-trip-search.scss */
+.book-trip-container .ticket-options .btn-1 .icon-ticket-1 {
+  font-size: 40px;
+  font-size: 2.5rem;
+  vertical-align: middle;
+  line-height: 0;
+}
+/* line 61, ../scss/_book-trip-search.scss */
+.book-trip-container .form-content [class^="column-"], .book-trip-container .form-content [class*=" column-"] {
+  display: inline-block;
+  vertical-align: top;
+}
+/* line 65, ../scss/_book-trip-search.scss */
+.book-trip-container .form-content .column-destination {
+  width: 45%;
+  padding-right: 40px;
+}
+/* line 69, ../scss/_book-trip-search.scss */
+.book-trip-container .form-content .column-dates,
+.book-trip-container .form-content .column-people {
+  width: 25%;
+}
+/* line 73, ../scss/_book-trip-search.scss */
+.book-trip-container .form-content .inp-txt-1 {
+  width: 100%;
+  margin-bottom: 15px;
+}
+/* line 77, ../scss/_book-trip-search.scss */
+.book-trip-container .form-content .txt-1 {
+  margin-bottom: 15px;
+}
+/* line 80, ../scss/_book-trip-search.scss */
+.book-trip-container .form-content .date-container {
+  margin-right: 8%;
+  max-width: 100px;
+  display: inline-block;
+}
+/* line 85, ../scss/_book-trip-search.scss */
+.book-trip-container .form-content .travelers-counter {
+  max-width: 100px;
+}
+/* line 88, ../scss/_book-trip-search.scss */
+.book-trip-container .form-content .btn-2 {
+  max-width: 180px;
+  margin: 30px auto 0;
+  width: 100%;
+  display: block;
+}
+/* line 94, ../scss/_book-trip-search.scss */
+.book-trip-container .form-content .cont-input {
+  display: inline-block;
+}
+
+/* line 100, ../scss/_book-trip-search.scss */
+.autocomplete-suggestions {
+  color: #444;
+  font-size: 16px;
+  font-size: 1rem;
+  font-family: 'gidoleregular';
+}
+
+@media screen and (max-width: 980px) {
+  /* line 108, ../scss/_book-trip-search.scss */
+  .book-trip-container .form-content .column-dates {
+    width: 31%;
+  }
+  /* line 111, ../scss/_book-trip-search.scss */
+  .book-trip-container .form-content .column-people {
+    width: 19%;
+  }
+}
+@media screen and (max-width: 799px) {
+  /* line 121, ../scss/_book-trip-search.scss */
+  .book-trip-container .form-content .column-destination {
+    width: 100%;
+  }
+  /* line 124, ../scss/_book-trip-search.scss */
+  .book-trip-container .form-content .column-dates {
+    width: 70%;
+  }
+  /* line 127, ../scss/_book-trip-search.scss */
+  .book-trip-container .form-content .column-people {
+    width: 29%;
+  }
+}
+@media screen and (max-width: 500px) {
+  /* line 138, ../scss/_book-trip-search.scss */
+  .book-trip-container .form-content .column-destination,
+  .book-trip-container .form-content .column-dates,
+  .book-trip-container .form-content .column-people {
+    width: 100%;
+    margin-bottom: 20px;
+    padding-right: 0;
+  }
+  /* line 147, ../scss/_book-trip-search.scss */
+  .book-trip-container .ticket-options .btn-1 {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 14px 2px;
+  }
+  /* line 155, ../scss/_book-trip-search.scss */
+  .book-trip-container .date-container {
+    width: 50%;
+    max-width: 120px;
+  }
+  /* line 160, ../scss/_book-trip-search.scss */
+  .book-trip-container .column-people .travelers-counter {
+    max-width: 120px;
+    margin: 0 auto 20px;
+    display: block;
+  }
+}
+/* line 1, ../scss/_post-articles.scss */
+.posts-container-1 {
+  margin-bottom: 35px;
+  padding: 0 20px;
+}
+/* line 4, ../scss/_post-articles.scss */
+.posts-container-1 .post-1 {
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  max-width: 220px;
+  margin-left: 19px;
+}
+/* line 11, ../scss/_post-articles.scss */
+.posts-container-1 .post-1:first-child {
+  margin-left: 0;
+}
+/* line 14, ../scss/_post-articles.scss */
+.posts-container-1 .post-1 .container-ttl {
+  background: #f1b70e;
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+  width: 100%;
+}
+/* line 21, ../scss/_post-articles.scss */
+.posts-container-1 .post-1 a {
+  display: block;
+}
+/* line 24, ../scss/_post-articles.scss */
+.posts-container-1 .post-1 .txt-1 {
+  color: #FFF;
+  font-family: 'gidoleregular';
+  font-size: 18px;
+  font-size: 1.125rem;
+  vertical-align: middle;
+  display: inline-block;
+  width: 84%;
+}
+/* line 32, ../scss/_post-articles.scss */
+.posts-container-1 .post-1 .icon-add-1 {
+  background: #FFF;
+  color: #f1b70e;
+  font-size: 30px;
+  font-size: 1.875rem;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  padding: 1px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 980px) {
+  /* line 46, ../scss/_post-articles.scss */
+  .posts-container-1 .post-1 {
+    margin: 0 4% 20px;
+    max-width: none;
+    width: 40%;
+  }
+  /* line 48, ../scss/_post-articles.scss */
+  .posts-container-1 .post-1:first-child {
+    margin-left: 4%;
+  }
+  /* line 53, ../scss/_post-articles.scss */
+  .posts-container-1 .post-1 img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 509px) {
+  /* line 62, ../scss/_post-articles.scss */
+  .posts-container-1 .post-1 {
+    margin: 0 auto 20px;
+    width: 100%;
+  }
+  /* line 63, ../scss/_post-articles.scss */
+  .posts-container-1 .post-1:first-child {
+    margin-left: auto;
+  }
+  /* line 66, ../scss/_post-articles.scss */
+  .posts-container-1 .post-1:last-child {
+    margin-bottom: 0;
+  }
+}
+/* line 1, ../scss/_footer.scss */
+.copyright-info {
+  margin-bottom: 10px;
+  text-align: right;
+  color: #999;
+  font-size: 12px;
+  font-size: 0.75rem;
+  font-family: 'gidoleregular';
+}
+
+/* line 8, ../scss/_footer.scss */
+.social-nw {
+  text-align: right;
+  color: #f1b70e;
+  font-family: 'gidoleregular';
+  font-size: 12px;
+  font-size: 0.75rem;
+}
+/* line 13, ../scss/_footer.scss */
+.social-nw a {
+  font-size: 20px;
+  font-size: 1.25rem;
+  color: #f1b70e;
+  margin: 0 5px;
+}
+
+/* line 19, ../scss/_footer.scss */
+.footer-container {
+  background-color: #FFF;
+  border-top: 1px solid #f1b70e;
+  padding: 28px 20px;
+}
+/* line 23, ../scss/_footer.scss */
+.footer-container .column-2 {
+  vertical-align: middle;
+}
+/* line 26, ../scss/_footer.scss */
+.footer-container .list-links-1 {
+  margin-bottom: 20px;
+}
+/* line 28, ../scss/_footer.scss */
+.footer-container .list-links-1 li {
+  border-left: 1px solid #f1b70e;
+  display: inline-block;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+/* line 34, ../scss/_footer.scss */
+.footer-container .list-links-1 li:first-child {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 500px) {
+  /* line 44, ../scss/_footer.scss */
+  .footer-container {
+    text-align: center;
+  }
+  /* line 46, ../scss/_footer.scss */
+  .footer-container .copyright-info,
+  .footer-container .social-nw {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 980px) {
+  /* line 2, ../scss/_travel-information.scss */
+  .travel-information {
+    padding: 0 20px;
+  }
+}
+@media screen and (max-width: 700px) {
+  /* line 8, ../scss/_travel-information.scss */
+  .travel-information .travel-route-data,
+  .travel-information .ticket-list-results {
+    margin-bottom: 30px;
+    width: 100%;
+  }
+}
+/* line 1, ../scss/_book-trip-search-filter.scss */
+.book-trip-search-filter {
+  background-color: #f1b70e;
+  margin-bottom: 40px;
+}
+/* line 4, ../scss/_book-trip-search-filter.scss */
+.book-trip-search-filter .container {
+  margin: 0 auto;
+  padding: 20px 0;
+}
+/* line 8, ../scss/_book-trip-search-filter.scss */
+.book-trip-search-filter .list-inp-loc {
+  margin-right: 3%;
+  width: 50%;
+}
+/* line 11, ../scss/_book-trip-search-filter.scss */
+.book-trip-search-filter .list-inp-loc .cont-inp-1 {
+  display: inline-block;
+}
+/* line 14, ../scss/_book-trip-search-filter.scss */
+.book-trip-search-filter .list-inp-loc .inp-txt-1 {
+  width: 98%;
+}
+/* line 18, ../scss/_book-trip-search-filter.scss */
+.book-trip-search-filter .list-inp-dates {
+  width: 26%;
+}
+/* line 21, ../scss/_book-trip-search-filter.scss */
+.book-trip-search-filter .btn-search,
+.book-trip-search-filter .list-inp-loc,
+.book-trip-search-filter .list-inp-dates {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 27, ../scss/_book-trip-search-filter.scss */
+.book-trip-search-filter .list-inp-loc,
+.book-trip-search-filter .list-inp-dates {
+  margin-right: 4%;
+}
+/* line 30, ../scss/_book-trip-search-filter.scss */
+.book-trip-search-filter .list-inp-loc li,
+.book-trip-search-filter .list-inp-dates li {
+  width: 49%;
+}
+/* line 34, ../scss/_book-trip-search-filter.scss */
+.book-trip-search-filter .btn-search {
+  padding: 10px 30px;
+  float: right;
+}
+
+@media screen and (max-width: 950px) {
+  /* line 42, ../scss/_book-trip-search-filter.scss */
+  .book-trip-search-filter .container {
+    padding: 20px;
+  }
+  /* line 45, ../scss/_book-trip-search-filter.scss */
+  .book-trip-search-filter .list-inp-loc {
+    width: 40%;
+  }
+  /* line 48, ../scss/_book-trip-search-filter.scss */
+  .book-trip-search-filter .list-inp-dates {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 950px) {
+  /* line 56, ../scss/_book-trip-search-filter.scss */
+  .book-trip-search-filter .container {
+    padding: 20px 10px;
+  }
+  /* line 59, ../scss/_book-trip-search-filter.scss */
+  .book-trip-search-filter .list-inp-loc {
+    width: 44%;
+  }
+  /* line 62, ../scss/_book-trip-search-filter.scss */
+  .book-trip-search-filter .list-inp-dates {
+    width: 31%;
+  }
+  /* line 65, ../scss/_book-trip-search-filter.scss */
+  .book-trip-search-filter .list-inp-loc,
+  .book-trip-search-filter .list-inp-dates {
+    margin-right: 1%;
+  }
+}
+@media screen and (max-width: 750px) {
+  /* line 74, ../scss/_book-trip-search-filter.scss */
+  .book-trip-search-filter .list-inp-loc {
+    width: 57%;
+  }
+  /* line 77, ../scss/_book-trip-search-filter.scss */
+  .book-trip-search-filter .list-inp-dates {
+    width: 40%;
+  }
+  /* line 80, ../scss/_book-trip-search-filter.scss */
+  .book-trip-search-filter .btn-search {
+    float: none;
+    display: block;
+    max-width: 180px;
+    margin: 10px auto 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* line 91, ../scss/_book-trip-search-filter.scss */
+  .book-trip-search-filter .list-inp-loc {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  /* line 95, ../scss/_book-trip-search-filter.scss */
+  .book-trip-search-filter .list-inp-dates {
+    width: 100%;
+  }
+}
+/* line 1, ../scss/_tickets-list-results.scss */
+.ticket-list-results {
+  color: #444;
+  font-family: 'gidoleregular';
+  padding-bottom: 40px;
+}
+/* line 5, ../scss/_tickets-list-results.scss */
+.ticket-list-results .filter-options {
+  overflow: hidden;
+}
+/* line 7, ../scss/_tickets-list-results.scss */
+.ticket-list-results .filter-options .txt-1 {
+  text-align: left;
+}
+/* line 10, ../scss/_tickets-list-results.scss */
+.ticket-list-results .filter-options .list-options,
+.ticket-list-results .filter-options .txt-1 {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 15, ../scss/_tickets-list-results.scss */
+.ticket-list-results .filter-options .list-options {
+  text-align: right;
+  width: 100%;
+}
+/* line 18, ../scss/_tickets-list-results.scss */
+.ticket-list-results .filter-options .list-options li {
+  display: inline-block;
+}
+/* line 20, ../scss/_tickets-list-results.scss */
+.ticket-list-results .filter-options .list-options li:nth-child(2) {
+  margin: 0 2%;
+}
+/* line 26, ../scss/_tickets-list-results.scss */
+.ticket-list-results .cont-results {
+  text-align: left;
+  margin-bottom: 45px;
+}
+/* line 29, ../scss/_tickets-list-results.scss */
+.ticket-list-results .cont-results .ttl-1 {
+  margin-bottom: 20px;
+  color: #444;
+}
+/* line 33, ../scss/_tickets-list-results.scss */
+.ticket-list-results .cont-results .tickets-table {
+  display: table;
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: #FFF;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+}
+/* line 43, ../scss/_tickets-list-results.scss */
+.ticket-list-results .cont-results .tickets-table tr:not(:last-child) {
+  border-bottom: 1px solid #f5f5f5;
+}
+/* line 47, ../scss/_tickets-list-results.scss */
+.ticket-list-results .cont-results .tickets-table td {
+  color: #444;
+  padding: 10px 0 10px 10px;
+  vertical-align: middle;
+}
+/* line 54, ../scss/_tickets-list-results.scss */
+.ticket-list-results .payment-information {
+  text-align: center;
+  display: table;
+  margin: 0 auto 60px;
+}
+/* line 59, ../scss/_tickets-list-results.scss */
+.ticket-list-results .payment-information .txt-1 {
+  color: #999;
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+/* line 62, ../scss/_tickets-list-results.scss */
+.ticket-list-results .payment-information .txt-1 strong {
+  color: #444;
+}
+/* line 66, ../scss/_tickets-list-results.scss */
+.ticket-list-results .payment-information .txt-2 {
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+/* line 69, ../scss/_tickets-list-results.scss */
+.ticket-list-results .payment-information .txt-3 {
+  font-size: 36px;
+  font-size: 2.25rem;
+}
+/* line 72, ../scss/_tickets-list-results.scss */
+.ticket-list-results .payment-information hr {
+  border: 0;
+  border-bottom: 1px solid #DDD;
+  margin-bottom: 15px;
+}
+/* line 77, ../scss/_tickets-list-results.scss */
+.ticket-list-results .payment-information p {
+  margin-bottom: 15px;
+}
+/* line 79, ../scss/_tickets-list-results.scss */
+.ticket-list-results .payment-information p:last-child {
+  margin-bottom: 0;
+}
+/* line 84, ../scss/_tickets-list-results.scss */
+.ticket-list-results .ttl-1 {
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+/* line 87, ../scss/_tickets-list-results.scss */
+.ticket-list-results .txt-1 {
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+/* line 90, ../scss/_tickets-list-results.scss */
+.ticket-list-results .txt-3 {
+  font-size: 36px;
+  font-size: 2.25rem;
+}
+/* line 93, ../scss/_tickets-list-results.scss */
+.ticket-list-results .txt-4 {
+  color: #999;
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+/* line 97, ../scss/_tickets-list-results.scss */
+.ticket-list-results .txt-5 {
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+/* line 100, ../scss/_tickets-list-results.scss */
+.ticket-list-results .txt-6 {
+  font-size: 12px;
+  font-size: 0.75rem;
+  color: #999;
+}
+/* line 104, ../scss/_tickets-list-results.scss */
+.ticket-list-results .btn-continue-1 {
+  display: table;
+  margin: 0 auto;
+}
+/* line 107, ../scss/_tickets-list-results.scss */
+.ticket-list-results .btn-continue-1 + small {
+  text-align: center;
+  width: 100%;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+@media screen and (max-width: 700px) {
+  /* line 119, ../scss/_tickets-list-results.scss */
+  .ticket-list-results .txt-3 {
+    font-size: 22px;
+    font-size: 1.375rem;
+  }
+  /* line 122, ../scss/_tickets-list-results.scss */
+  .ticket-list-results .txt-5 {
+    font-size: 16px;
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* line 131, ../scss/_tickets-list-results.scss */
+  .ticket-list-results .filter-options .txt-1 {
+    margin-bottom: 10px;
+  }
+  /* line 137, ../scss/_tickets-list-results.scss */
+  .ticket-list-results .tickets-table td:not(:first-child) {
+    width: 50%;
+    display: inline-block;
+  }
+}
+@media screen and (max-width: 450px) {
+  /* line 148, ../scss/_tickets-list-results.scss */
+  .ticket-list-results .btn-3 {
+    font-size: 14px;
+    font-size: 0.875rem;
+    padding: 13px 10px;
+  }
+}
+/* line 2, ../scss/_travel-route-data.scss */
+.travel-route-data .cont-travel-data {
+  background-color: #FFF;
+  padding: 0 10px 20px;
+}
+/* line 6, ../scss/_travel-route-data.scss */
+.travel-route-data .general-data {
+  margin-bottom: 15px;
+}
+/* line 8, ../scss/_travel-route-data.scss */
+.travel-route-data .general-data .cont-map {
+  border: 1px solid #CCC;
+  margin: 0 -10px 20px;
+}
+/* line 12, ../scss/_travel-route-data.scss */
+.travel-route-data .general-data .list-data {
+  border-bottom: 1px solid #CCC;
+  padding-bottom: 15px;
+  display: table;
+}
+/* line 16, ../scss/_travel-route-data.scss */
+.travel-route-data .general-data .list-data li {
+  display: table-cell;
+  text-align: center;
+}
+/* line 19, ../scss/_travel-route-data.scss */
+.travel-route-data .general-data .list-data li:first-child {
+  padding-right: 10px;
+}
+/* line 22, ../scss/_travel-route-data.scss */
+.travel-route-data .general-data .list-data li .txt-1 {
+  margin-bottom: 10px;
+}
+/* line 29, ../scss/_travel-route-data.scss */
+.travel-route-data .travel-route .txt-1 {
+  margin-bottom: 20px;
+}
+/* line 32, ../scss/_travel-route-data.scss */
+.travel-route-data .travel-route ul {
+  position: relative;
+}
+/* line 34, ../scss/_travel-route-data.scss */
+.travel-route-data .travel-route ul:after {
+  content: "";
+  display: block;
+  border-left: 1px solid #CCC;
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 7px;
+}
+/* line 45, ../scss/_travel-route-data.scss */
+.travel-route-data .travel-route li {
+  color: #444;
+  font-family: 'gidoleregular';
+  font-size: 16px;
+  font-size: 1rem;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 20px;
+}
+/* line 52, ../scss/_travel-route-data.scss */
+.travel-route-data .travel-route li:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #f1b70e;
+  position: absolute;
+  left: 2px;
+  z-index: 10;
+}
+/* line 64, ../scss/_travel-route-data.scss */
+.travel-route-data .travel-route li:first-child, .travel-route-data .travel-route li:last-child {
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+/* line 67, ../scss/_travel-route-data.scss */
+.travel-route-data .travel-route li:first-child:before, .travel-route-data .travel-route li:last-child:before {
+  width: 15px;
+  height: 15px;
+  left: 0;
+}
+/* line 76, ../scss/_travel-route-data.scss */
+.travel-route-data .ttl-1 {
+  color: #444;
+  font-family: 'gidoleregular';
+  font-size: 20px;
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+/* line 82, ../scss/_travel-route-data.scss */
+.travel-route-data .txt-1 {
+  color: #999;
+  font-family: 'gidoleregular';
+  font-size: 16px;
+  font-size: 1rem;
+}
+/* line 87, ../scss/_travel-route-data.scss */
+.travel-route-data .txt-2 {
+  font-family: 'gidoleregular';
+  font-size: 24px;
+  font-size: 1.5rem;
+  color: #f1b70e;
+}
+
+@media screen and (max-width: 700px) {
+  /* line 95, ../scss/_travel-route-data.scss */
+  .travel-route-data .general-data,
+  .travel-route-data .travel-route {
+    display: inline-block;
+    margin: 0 2%;
+    width: 45%;
+  }
+  /* line 101, ../scss/_travel-route-data.scss */
+  .travel-route-data .travel-route {
+    padding-top: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  /* line 109, ../scss/_travel-route-data.scss */
+  .travel-route-data .general-data,
+  .travel-route-data .travel-route {
+    margin: 0;
+    width: 100%;
+  }
+}
+/* line 1, ../scss/_seats-list-results.scss */
+.seats-list-results {
+  color: #444;
+  font-family: 'gidoleregular';
+  padding-bottom: 40px;
+}
+/* line 5, ../scss/_seats-list-results.scss */
+.seats-list-results .ticket-details {
+  margin-bottom: 40px;
+}
+/* line 8, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-position {
+  padding-right: 20px;
+  border-right: 1px solid #CCC;
+}
+/* line 11, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-position td {
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  width: 15px;
+  height: 15px;
+  margin: 2.5px;
+  cursor: pointer;
+  display: block;
+  vertical-align: top;
+  text-indent: -9999em;
+}
+/* line 20, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-position td:hover {
+  background-color: #0a8aaa;
+}
+/* line 23, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-position td:nth-child(2n+2) {
+  margin-bottom: 20px;
+}
+/* line 26, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-position td:last-child {
+  margin-bottom: 0;
+}
+/* line 30, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-position tr {
+  display: inline-block;
+}
+/* line 35, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-position,
+.seats-list-results .list-floor {
+  display: inline-block;
+  vertical-align: top;
+}
+/* line 42, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-position .occupy,
+.seats-list-results .seats-conventions .occupy {
+  background-color: #444444;
+}
+/* line 45, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-position .free,
+.seats-list-results .seats-conventions .free {
+  background-color: #ccc;
+}
+/* line 48, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-position .selected,
+.seats-list-results .seats-conventions .selected {
+  background-color: #0a8aaa;
+}
+/* line 52, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-conventions {
+  margin-bottom: 20px;
+}
+/* line 54, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-conventions span {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+/* line 60, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-conventions span,
+.seats-list-results .seats-conventions .txt-7 {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 65, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-conventions .list-conventions {
+  display: table;
+}
+/* line 68, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-conventions li {
+  display: table-cell;
+  width: 30%;
+}
+/* line 74, ../scss/_seats-list-results.scss */
+.seats-list-results .list-floor .btn-5 {
+  margin-bottom: 10px;
+}
+/* line 78, ../scss/_seats-list-results.scss */
+.seats-list-results .cont-details {
+  background-color: #FAFAFA;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 20px;
+  position: relative;
+}
+/* line 83, ../scss/_seats-list-results.scss */
+.seats-list-results .cont-details [class*="details-"] {
+  display: inline-block;
+  vertical-align: top;
+}
+/* line 87, ../scss/_seats-list-results.scss */
+.seats-list-results .cont-details .details-1 {
+  width: 70%;
+}
+/* line 90, ../scss/_seats-list-results.scss */
+.seats-list-results .cont-details .details-2 {
+  padding: 20px;
+  text-align: center;
+  width: 29%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #FFF;
+}
+/* line 101, ../scss/_seats-list-results.scss */
+.seats-list-results .list-details {
+  display: table;
+  width: 100%;
+  border-bottom: 1px solid #DDD;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+/* line 109, ../scss/_seats-list-results.scss */
+.seats-list-results .list-details li {
+  display: table-cell;
+}
+/* line 114, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-details [class*="column"] {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* line 118, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-details .column-people {
+  width: 28%;
+  min-width: 120px;
+}
+/* line 121, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-details .column-people .txt-1 {
+  margin-bottom: 15px;
+}
+/* line 124, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-details .column-people .txt-number {
+  font-size: 30px;
+  font-size: 1.875rem;
+}
+/* line 127, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-details .column-people .travelers-counter {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 15px;
+}
+/* line 132, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-details .column-seats {
+  width: 70%;
+}
+/* line 134, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-details .column-seats .txt-6 {
+  display: inline-block;
+}
+/* line 137, ../scss/_seats-list-results.scss */
+.seats-list-results .seats-details .column-seats .icon-steering-wheel-1 {
+  color: #CCC;
+  vertical-align: bottom;
+  display: inline-block;
+  margin-bottom: 3px;
+}
+/* line 147, ../scss/_seats-list-results.scss */
+.seats-list-results .ttl-1 {
+  font-size: 20px;
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+/* line 152, ../scss/_seats-list-results.scss */
+.seats-list-results .txt-2 {
+  font-size: 14px;
+  font-size: 0.875rem;
+  color: #999;
+  margin-bottom: 10px;
+}
+/* line 157, ../scss/_seats-list-results.scss */
+.seats-list-results .txt-3 {
+  font-size: 20px;
+  font-size: 1.25rem;
+  color: #f1b70e;
+}
+/* line 161, ../scss/_seats-list-results.scss */
+.seats-list-results .txt-4 {
+  font-size: 16px;
+  font-size: 1rem;
+  color: #444;
+}
+/* line 165, ../scss/_seats-list-results.scss */
+.seats-list-results .txt-5 {
+  font-size: 34px;
+  font-size: 2.125rem;
+  color: #444;
+}
+/* line 169, ../scss/_seats-list-results.scss */
+.seats-list-results .txt-6 {
+  font-size: 14px;
+  font-size: 0.875rem;
+  color: #444;
+}
+/* line 173, ../scss/_seats-list-results.scss */
+.seats-list-results .txt-7 {
+  font-size: 14px;
+  font-size: 0.875rem;
+  color: #999;
+}
+/* line 178, ../scss/_seats-list-results.scss */
+.seats-list-results .btn-continue-1 {
+  display: table;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 950px) {
+  /* line 187, ../scss/_seats-list-results.scss */
+  .seats-list-results .seats-details [class*="column"] {
+    display: block;
+    margin: 0 auto;
+  }
+  /* line 191, ../scss/_seats-list-results.scss */
+  .seats-list-results .seats-details .column-seats {
+    width: 100%;
+  }
+  /* line 195, ../scss/_seats-list-results.scss */
+  .seats-list-results .txt-5 {
+    font-size: 30px;
+    font-size: 1.875rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  /* line 201, ../scss/_seats-list-results.scss */
+  .seats-list-results {
+    width: 100%;
+  }
+  /* line 204, ../scss/_seats-list-results.scss */
+  .seats-list-results .seats-details .column-seats {
+    width: 292px;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* line 213, ../scss/_seats-list-results.scss */
+  .seats-list-results .txt-5 {
+    font-size: 25px;
+    font-size: 1.5625rem;
+  }
+  /* line 217, ../scss/_seats-list-results.scss */
+  .seats-list-results .cont-details .details-1 {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  /* line 221, ../scss/_seats-list-results.scss */
+  .seats-list-results .cont-details .details-2 {
+    width: auto;
+    margin: 0 -20px -20px;
+    position: relative;
+    display: block;
+  }
+}
+/* line 1, ../scss/_general-forms.scss */
+.general-forms {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 500px;
+  padding: 75px 0;
+}
+/* line 7, ../scss/_general-forms.scss */
+.general-forms .inputs-block {
+  margin-bottom: 10px;
+}
+/* line 9, ../scss/_general-forms.scss */
+.general-forms .inputs-block .txt-2 {
+  margin-bottom: 10px;
+}
+/* line 13, ../scss/_general-forms.scss */
+.general-forms .social-login {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #ddd;
+}
+/* line 18, ../scss/_general-forms.scss */
+.general-forms form {
+  display: block;
+  max-width: 310px;
+  margin: 0 auto;
+}
+/* line 23, ../scss/_general-forms.scss */
+.general-forms form input:not([type="submit"]):not([type="checkbox"]) {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  padding: 16px 30px;
+  width: 100%;
+}
+/* line 28, ../scss/_general-forms.scss */
+.general-forms form input[type="submit"] {
+  display: block;
+  margin: 0 auto 20px;
+}
+/* line 33, ../scss/_general-forms.scss */
+.general-forms form textarea {
+  width: 100%;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+/* line 38, ../scss/_general-forms.scss */
+.general-forms form .error-inp input,
+.general-forms form .error-inp textarea {
+  border: 1px solid #bb1b1b;
+}
+/* line 43, ../scss/_general-forms.scss */
+.general-forms form .cont-input-txt {
+  display: inline-block;
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+}
+/* line 48, ../scss/_general-forms.scss */
+.general-forms form .cont-input-txt [class*="icon-"] {
+  color: #f1b70e;
+  position: absolute;
+  left: 10px;
+  top: 15px;
+}
+/* line 55, ../scss/_general-forms.scss */
+.general-forms form .cont-input {
+  display: inline-block;
+  margin-bottom: 20px;
+  width: 100%;
+}
+/* line 59, ../scss/_general-forms.scss */
+.general-forms form .cont-input .icon-checkmark-1 {
+  background-color: #f1b70e;
+  color: #FFF;
+}
+/* line 63, ../scss/_general-forms.scss */
+.general-forms form .cont-input .link-3 {
+  float: right;
+}
+/* line 69, ../scss/_general-forms.scss */
+.general-forms .txt-1 {
+  color: #f1b70e;
+  font-family: 'gidoleregular';
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+/* line 74, ../scss/_general-forms.scss */
+.general-forms .txt-2 {
+  color: #444;
+  font-family: 'gidoleregular';
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+/* line 79, ../scss/_general-forms.scss */
+.general-forms .register-opt {
+  text-align: center;
+}
+/* line 82, ../scss/_general-forms.scss */
+.general-forms .txt-err-1 {
+  color: #b60b0b;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  font-family: 'gidoleregular';
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* line 1, ../scss/_contact-form.scss */
+.contact-form {
+  background-color: #f5f5f5;
+  padding: 40px 0;
+}
+/* line 5, ../scss/_contact-form.scss */
+.contact-form .ttl-form-1 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  color: #f1b70e;
+  text-align: center;
+  margin-bottom: 40px;
+  font-family: 'gidoleregular';
+}
+/* line 12, ../scss/_contact-form.scss */
+.contact-form textarea {
+  height: 150px;
+}
+
+/* line 2, ../scss/_custom-magnific-popup.scss */
+.mfp-close-btn-in .mfp-close {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #f1b70e;
+  color: #FFF;
+  width: 30px;
+  height: 30px;
+  line-height: 32px;
+  top: 10px;
+  right: 10px;
+}
+
+/* line 1, ../scss/_popup-text.scss */
+.mfp-content {
+  font-size: 14px;
+  font-size: 0.875rem;
+  color: #444;
+}
+/* line 5, ../scss/_popup-text.scss */
+.mfp-content .mfp-with-anim {
+  padding: 0 30px;
+}
+/* line 8, ../scss/_popup-text.scss */
+.mfp-content h3 {
+  font-size: 24px;
+  font-size: 1.5rem;
+  color: #f1b70e;
+  text-align: center;
+  margin-bottom: 40px;
+  font-family: 'gidoleregular';
+}
+/* line 15, ../scss/_popup-text.scss */
+.mfp-content a {
+  color: #f1b70e;
+}

@@ -1,0 +1,84 @@
+<link rel="stylesheet" type="text/css" href="http://getbootstrap.com/dist/css/bootstrap.min.css" />
+
+<?php if (!$this->session) : ?>
+<script>
+    $(document).ready(function () {
+        $('.frame-login-popup').magnificPopup({
+            type: 'iframe',
+            modal: true,
+            overflowY: 'hidden'
+        });
+        $('#pop-user-login').trigger('click');
+    });
+</script>
+<!--START MAIN CONTENT -->
+<div class="main-content">
+    <section class="posts-container-1">
+        <div class="container">
+                <a style="display: none;" id="pop-user-login" class="frame-login-popup" href="/auth/login/authserver/authorization_code/code/login/<?php echo rand(1000000000, getrandmax()); ?>/lightbox">user</a>
+        </div>
+    </section>
+</div>
+<!--END MAIN CONTENT -->
+<?php else : ?>
+<!--START MAIN CONTENT -->
+<div class="main-content">
+    <section class="posts-container-1">
+        <div class="container">
+            <div class="formulario-compra">
+                <h2 style="text-align: center;">Información de la Compra</h2>
+                <span class="titulo-valores">Detalle: </span><p><?php print $description; ?></p>
+                <span class="titulo-valores">Valor compra: </span><p><?php print $total; ?></p>
+                <span class="titulo-valores">Referencia: </span><p><?php print $id_reference; ?></p>
+                <form class="formulario-compra" id="form1" name="form1" method="post" action="https://secure.interpagos.net/gateway/">
+                    <?php
+                    print $this->formInput($form->get('IdClient'));
+                    print $this->formInput($form->get('Token'));
+                    print $this->formInput($form->get('IDReference'));
+                    print $this->formInput($form->get('Reference'));
+                    print $this->formInput($form->get('Currency'));
+                    print $this->formInput($form->get('BaseAmount'));
+                    print $this->formInput($form->get('TotalAmount'));
+                    print $this->formInput($form->get('TaxAmount'));
+                    ?>
+                    <div class="form-group">
+                        <?php
+                        print $this->formLabel($form->get('ShopperName'));
+                        print $this->formInput($form->get('ShopperName'));
+                        ?>
+                    </div>
+                    <div class="form-group">
+                        <?php
+                        print $this->formLabel($form->get('ShopperEmail'));
+                        print $this->formInput($form->get('ShopperEmail'));
+                        ?>
+                    </div>
+                    <?php
+                    print $this->formInput($form->get('LanguajeInterface'));
+                    print $this->formInput($form->get('PayMethod'));
+                    print $this->formInput($form->get('RecurringBill'));
+                    print $this->formInput($form->get('RecurringBillTimes'));
+                    print $this->formInput($form->get('PageAnswer'));
+                    print $this->formInput($form->get('PageConfirm'));
+                    print $this->formInput($form->get('Test'));
+                    ?>
+                    <?php print $this->formInput($form->get('send')); ?>
+                </form> 
+            </div>
+        </div>
+    </section>
+</div>
+<!--END MAIN CONTENT -->
+<?php endif; ?>
+<style>
+    .form-control{
+        width: 20%;
+    }
+    .formulario-compra{
+        margin-left: 40px !important;
+    }
+    .titulo-valores{
+        font-size: 16px !important;
+        font-weight: bold;
+    }
+</style>

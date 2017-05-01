@@ -1,0 +1,116 @@
+    <?php echo $this->doctype(); ?>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+
+        <?php echo $this->headTitle('Pasajesterrestres ' . $this->translate('Tu terminal virtual'))->setSeparator(' - ')->setAutoEscape(false); ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge');
+        ?>
+
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'icon', 'sizes' => '16x16 32x32 48x48 64x64', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+        ->prependStylesheet($this->basepath() . '/css/magnific-popup.css')
+        ->prependStylesheet($this->basePath() . '/css/main.css')
+        ->prependStylesheet($this->basePath() . '/css/style.css')
+        ->prependStylesheet($this->basePath() . '/js/libs/datetimepicker-master/jquery.datetimepicker.css');
+//         ->prependStylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css')
+//         ->prependStylesheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css');
+//                         ->prependStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
+//                         ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css');
+        ?>
+
+        <!-- Scripts -->
+        <?php echo $this->headScript()
+            ->prependFile($this->basePath() . '/js/jquery.magnific-popup.js')
+            ->prependFile($this->basePath() . '/js/libs/jquery.autocomplete.min.js')
+            ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+            ->prependFile($this->basePath() . '/js/libs/datetimepicker-master/jquery.datetimepicker.js')
+            ->prependFile('http://code.jquery.com/ui/1.9.2/jquery-ui.js')
+//             ->prependFile($this->basePath() . '/js/libs/jquery-ui-1.11.4/jquery-ui.min.js')
+            ->prependFile($this->basePath() . '/js/libs/jquery-2.1.3.min.js')
+            ->prependFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+            ->prependFile($this->basePath() . '/js/html5shiv.js',   'text/javascript', array('conditional' => 'lt IE 9',));
+        ?>
+    </head>
+    <body>
+        <section class="main-container">
+
+            <!--START HEADER -->
+            <div class="header-container">
+                <header class="container">
+                    <h1 class="main-logo"><a href="/">Pasajes Terrestres - Tu terminal virtual <img src="/images/img-logo-pasajes-terrestres-1.png" alt="Pasajes Terrestres - Tu terminal virtual" class="image-logo" /></a></h1>
+                    <address class="info">
+                        <p class="txt-1">
+                            <span class="icon-phone-1"></span> 311  222 22 22
+                        </p>
+                        <p class="txt-2">
+                            Diagonal 23 # 69-11 <span class="divider-v1"></span> Módulo 2 Ofc 2-246
+                        </p>
+                        <p class="txt-2">
+                            Terminal de transportes Salitre Bogotá
+                        </p>
+                    </address>
+                </header>
+            </div>
+            <!--END HEADER -->
+
+                <?php echo $this->content; ?>
+
+            <!--START FOOTER -->
+            <div class="footer-container">
+                <footer class="container">
+                    <div class="column-2">
+                        <ul class="list-links-1">
+                            <li>
+                                <a href="#" class="link-2">Ayuda</a>
+                            </li>
+                            <li>
+                                <a href="/quienes-somos" class="link-2">¿Quiénes somos?</a>
+                            </li>
+                            <li>
+                                <a href="#" class="link-2">Contáctanos</a>
+                            </li>
+                            <li>
+                                <a href="/terminos-condiciones" class="link-2">Términos y condiciones</a>
+                            </li>
+                            <li>
+                                <a href="/politica-privacidad" class="link-2">Política de privacidad</a>
+                            </li>
+                        </ul>
+                        <div class="pay-opt-info">
+                            <img src="/images/img-logo-payu-1.png" alt="Payu">
+                            <br/>
+                            <img src="/images/img-visa-logo-1.png" alt="Visa">
+                            <img src="/images/img-amex-logo-1.png" alt="AMEX">
+                        </div>
+                    </div>
+                    <div class="column-2">
+                        <div class="copyright-info">
+                            <p class="txt-1">
+                                Pasajes Terrestres. Todos los derechos reservados ©2015
+                                <br />
+                                Terminal de transportes Salitre Modulo 2 Ofc 2-246
+                                <br />
+                                Bogotá, Colombia
+                            </p>
+                        </div>
+                        <div class="social-nw">
+                            <span class="txt-1">Síguenos en</span>
+                            <a href="#" class="link-3"><span class="icon-twitter-1"></span></a>
+                            <a href="#" class="link-3"><span class="icon-facebook-1"></span></a>
+                        </div>
+                    </div>
+
+                </footer>
+            </div>
+            <!--END FOOTER -->
+            <?php echo $this->inlineScript(); ?>
+<!--            <script src="../js/libs/jquery-2.1.3.min.js"></script> -->
+            <script src="/js/libs/jquery.bxslider.min.js"></script>
+            <script src="/js/customScript.js"></script>
+        </section>
+    </body>
+</html>

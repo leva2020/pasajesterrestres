@@ -1,0 +1,160 @@
+<?php
+// module/Album/view/album/album/add.phtml:
+$title = 'Registrate en nuestro portal';
+$this->headTitle($title);
+?>
+<!--START MAIN CONTENT -->
+<div class="main-content general-forms add-form">
+
+    <section class="form-container">
+
+        <div class="social-login">
+            <a class="btn-fb-1" href="javascript:void(0);" title="Ingresa con facebook">
+                registrate con Facebook
+            </a>
+            <a class="btn-gp-1" id="customBtn" href="javascript:void(0);" title="Ingresa con google plus">
+                registrate con google+
+            </a>
+        </div>
+
+
+    	<?php
+        $form->setAttribute('action', $this->url('register/user/add', array(
+            'action' => 'add'
+        )));
+        $form->prepare();
+        
+        echo $this->form()->openTag($form);
+        echo $this->formHidden($form->get('id'));
+        echo $this->formHidden($form->get('csrf'));
+        
+        ?>
+        <div class="inputs-block">
+            
+            <div class="cont-input-txt">
+            <?php echo $this->formInput($form->get('first_name')); ?>
+            </div>
+            <?php
+            if (count($form->get('first_name')->getMessages())) :
+                $form->get('first_name')->setMessages(array(
+                    "error" => "Debes ingresar tu nombre. No puede tener números o caracteres especiales."
+                ));
+            endif;
+            echo $this->formElementErrors()
+            ->setMessageOpenFormat('<span class="error-1">')
+            ->setMessageSeparatorString('')
+            ->setMessageCloseString('</span>')
+            ->render($form->get('first_name'));
+            ?>
+                                 
+            <div class="cont-input-txt">
+            <?php echo $this->formInput($form->get('last_name')); ?>
+            </div>
+
+            <?php
+            if (count($form->get('last_name')->getMessages())) :
+                $form->get('last_name')->setMessages(array(
+                    "error" => "Debes ingresar tu apellido. No puede tener números o caracteres especiales."
+                ));
+            endif;
+            echo $this->formElementErrors()
+            ->setMessageOpenFormat('<span class="error-1">')
+            ->setMessageSeparatorString('')
+            ->setMessageCloseString('</span>')
+            ->render($form->get('last_name'));
+            ?> 
+            
+            <div class="cont-input-txt">
+            <?php echo $this->formInput($form->get('email')); ?>
+            </div>
+
+            <?php $emailMessageErrors = $form->get('email')->getMessages(); ?>
+            <?php
+            if (count($form->get('email')->getMessages())) :
+                if ($emailMessageErrors['recordFound']) :
+                    $form->get('email')->setMessages(array(
+                        "error" => $emailMessageErrors['recordFound']
+                    ));
+                 else :
+                    $form->get('email')->setMessages(array(
+                        "error" => "Este no es un correo electrónico válido"
+                    ));
+                endif;
+            endif;
+            ?>
+           <?php
+            echo $this->formElementErrors()
+                ->setMessageOpenFormat('<span class="error-1">')
+                ->setMessageSeparatorString('')
+                ->setMessageCloseString('</span>')
+                ->render($form->get('email'));
+            ?>                     
+    	</div>
+
+        <div class="inputs-block">
+            <p class="txt-2">La contraseña debe tener mínimo 6 caractéres</p>
+
+            <div class="cont-input-txt">
+            <?php echo $this->formInput($form->get('password')); ?>
+            </div>
+
+            <?php
+            if (count($form->get('password')->getMessages())) :
+                $form->get('password')->setMessages(array(
+                    "error" => "Esta no es una contraseña válida"
+                ));
+    		endif;
+            ?>
+            <?php
+            echo $this->formElementErrors()
+                ->setMessageOpenFormat('<span class="error-1">')
+                ->setMessageSeparatorString('')
+                ->setMessageCloseString('</span>')
+                ->render($form->get('password'));
+            ?>
+                  
+            <div class="cont-input-txt">
+            <?php echo $this->formInput($form->get('password_repeat')); ?>
+            </div>
+
+            <?php
+            if (count($form->get('password_repeat')->getMessages())) :
+                $form->get('password_repeat')->setMessages(array(
+                    "error" => "Esta contraseña no coincide con la anterior"
+                ));
+    		endif;
+            ?>
+            <?php
+            echo $this->formElementErrors()
+                ->setMessageOpenFormat('<span class="error-1">')
+                ->setMessageSeparatorString('')
+                ->setMessageCloseString('</span>')
+                ->render($form->get('password_repeat'));
+            ?>
+            
+        </div>
+    	<div class="cont-input">
+            
+            <?php echo $this->formCheckbox($form->get('terms')); ?>
+            <span class="icon-checkmark-1"></span>
+            <span class="txt-1">Acepto los terminos y condiciones</span>
+            <?php
+            echo $this->formElementErrors()
+                ->setMessageOpenFormat('<span class="error-1">')
+                ->setMessageSeparatorString('')
+                ->setMessageCloseString('</span>')
+                ->render($form->get('terms'));
+            ?>
+        </div>
+    <?php
+    echo $this->formSubmit($form->get('submit'));
+    ?>
+    <?php
+    echo $this->form()->closeTag();
+    ?>        
+        </div>
+    </section>
+</div>
+<!--END MAIN CONTENT -->
+
+

@@ -1,0 +1,249 @@
+<!--START MAIN CONTENT -->
+<div class="main-content">
+    <!-- <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/directions?origin=Bogot%C3%A1%2C%20Colombia&destination=Facatativ%C3%A1%2C%20Colombia&key="></iframe> -->
+    <!--START BOOK FILTER -->
+    <?php echo $this->partial("application/comun/search.phtml"); ?>
+    <!--END BOOK FILTER -->
+    <!--START BOOK FILTER -->
+    <div class="travel-information container">
+    	<?php echo $this->partial("application/comun/guia-trayecto.phtml"); ?>
+    	<section class="ticket-list-results">
+    		<?php
+//     		echo $this->partial("application/comun/filtro.phtml");
+    		?>
+    		<div class="cont-results">
+    			<h2 class="ttl-1">Pasaje de ida</h2>
+    			<table class="tickets-table" border="none">
+    			    <?php
+    			    if ($rutasOrigen == "{}" || $rutasOrigen == null || $rutasOrigen == ""):
+    			    ?>
+        			    <tr>
+        			        <td><p class="txt-3" >En este momento no tenemos rutas disponibles, por favor intenta nuevamente.</p></td>
+        			    </tr>
+    			    <?php
+    			    else:
+        			    $rutasOrigen = json_decode($rutasOrigen);
+        			    if (isset($rutasOrigen->Table) && is_array($rutasOrigen->Table)):
+            			    foreach ($rutasOrigen->Table as $ruta):
+        //     			    var_dump($ruta);
+            			        $date = new DateTime($ruta->Fecha);
+        			            $fechaOrigen = $date->format("d/m/Y");
+                                $dateOrigen = $date->format("H:i:s");
+                                $valorRuta = (int)$ruta->Tarifa + (int)$ruta->ValorCobertura - (int)$ruta->DescuOperativo;
+        	                    ?>
+                			    <tr>
+                					<td>
+                						<div class="cont-input check-2">
+                							<input class="checkbox-1" type="checkbox" value="Acepto" onclick="acumularValor($(this))" />
+                							<span class="icon-checkmark-1"></span>
+                						</div>
+                					</td>
+                					<td><p class="txt-3" nRodamiento="<?php echo $ruta->NumeroRodamiento; ?>" idRuta="<?php echo $ruta->IdRuta; ?>" ruta="<?php echo $ruta->Ruta; ?>" servicio="<?php echo $ruta->Servicio; ?>" referencia="<?php echo $ruta->Servicio . ": " . $ruta->Ruta; ?>" valor="<?php echo (int)$valorRuta; ?>" idTarifa="<?php echo $ruta->IdTarifa; ?>" puestosLibres="<?php echo $ruta->PuestosLibres; ?>" id="valorPasaje" identificador="Ida">
+                					$<?php echo (int)$valorRuta; ?>
+                					</p></td>
+                					<td>
+                					    <h3 class="txt-4">Hora de salida</h3>
+                					    <h4 class="txt-5" id="dataFechaIda" data="<?php echo $fechaOrigen; ?>"><?php echo $fechaOrigen; ?></h4>
+                					    <h4 class="txt-5" id="dataHoraIda" data="<?php echo $dateOrigen; ?>"><?php echo $dateOrigen; ?></h4>
+            					    </td>
+                					<td><img class="img-company" src="/images/companies/rapido-ochoa.jpg" alt="Rapido Ochoa" width="100px" height="50px" /></td>
+                					<td><h3 class="txt-4">Sillas disponibles</h3><h4 class="txt-5"><?php echo $ruta->PuestosLibres; ?></h4></td>
+                					<td>
+                					    <h3 class="txt-4">Niños</h3>
+                					    <div class="cont-input check-2">
+                							<input class="checkbox-1" type="checkbox" value="infantes" id="infantesIda" onclick="setInfantes($(this))" />
+                							<span class="icon-checkmark-1"></span>
+                						</div>
+            					    </td>
+                				</tr>
+            			    <?php
+            			    endforeach;
+        			    elseif (count($rutasOrigen->Table) == 1):
+        			        $ruta = $rutasOrigen->Table;
+        			        $date = new DateTime($ruta->Fecha);
+        			        $fechaOrigen = $date->format("d/m/Y");
+        			        $dateOrigen = $date->format("H:i:s");
+        			        $valorRuta = (int)$ruta->Tarifa + (int)$ruta->ValorCobertura - (int)$ruta->DescuOperativo;
+        			        ?>
+            			    <tr>
+            					<td>
+            						<div class="cont-input check-2">
+            							<input class="checkbox-1" type="checkbox" value="Acepto" onclick="acumularValor($(this))" />
+            							<span class="icon-checkmark-1"></span>
+            						</div>
+            					</td>
+            					<td><p class="txt-3" nRodamiento="<?php echo $ruta->NumeroRodamiento; ?>" idRuta="<?php echo $ruta->IdRuta; ?>" ruta="<?php echo $ruta->Ruta; ?>" servicio="<?php echo $ruta->Servicio; ?>" referencia="<?php echo $ruta->Servicio . ": " . $ruta->Ruta; ?>" valor="<?php echo (int)$valorRuta; ?>" idTarifa="<?php echo $ruta->IdTarifa; ?>" puestosLibres="<?php echo $ruta->PuestosLibres; ?>" id="valorPasaje" identificador="Ida">
+            					$<?php echo (int)$valorRuta; ?>
+            					</p></td>
+            					<td>
+            					    <h3 class="txt-4">Hora de salida</h3>
+                					<h4 class="txt-5" id="dataFechaIda" data="<?php echo $fechaOrigen; ?>"><?php echo $fechaOrigen; ?></h4>
+                					<h4 class="txt-5" id="dataHoraIda" data="<?php echo $dateOrigen; ?>"><?php echo $dateOrigen; ?></h4>
+            					</td>
+            					<td><img class="img-company" src="/images/companies/rapido-ochoa.jpg" alt="Rapido Ochoa" width="100px" height="50px" /></td>
+            					<td><h3 class="txt-4">Sillas disponibles</h3><h4 class="txt-5"><?php echo $ruta->PuestosLibres; ?></h4></td>
+            					<td>
+            					    <h3 class="txt-4">Niños</h3>
+            					    <div class="cont-input check-2">
+            							<input class="checkbox-1" type="checkbox" value="infantes" id="infantesIda" onclick="setInfantes($(this))" />
+            							<span class="icon-checkmark-1"></span>
+            						</div>
+        					    </td>
+            				</tr>
+        			    <?php
+        			    elseif (count($rutasOrigen->Table) < 1 || $rutasOrigen = ""):
+        			    ?>
+        			        <tr>
+            					<td><p class="txt-3" >En este momento no tenemos rutas disponibles, por favor intenta nuevamente.</p></td>
+            				</tr>
+        			    <?php
+        			    endif;
+    			    endif;
+    			    ?>
+    			</table>
+    		</div>
+    		<?php
+    		if ($tipoPasaje):
+    		?>
+        		<div class="cont-results">
+        			<h2 class="ttl-1">Pasaje de regreso</h2>
+        			<table class="tickets-table">
+        			    <?php
+        			    if ($rutasDestino == "{}" || $rutasDestino == null || $rutasDestino == ""):
+        			    ?>
+        			        <tr>
+            					<td><p class="txt-3" >En este momento no tenemos rutas disponibles, por favor intenta nuevamente.</p></td>
+            				</tr>
+        			    <?php
+        			    else:
+            			    $rutasDestino = json_decode($rutasDestino);
+            			    if (isset($rutasDestino->Table) && is_array($rutasDestino->Table)):
+                			    foreach ($rutasDestino->Table as $ruta):
+            //     			    var_dump($ruta);
+                    			    $date = new DateTime($ruta->Fecha);
+            		                $fechaRegreso = $date->format("d/m/Y");
+                    			    $dateRegreso = $date->format("H:i:s");
+                    			    $valorRuta = (int)$ruta->Tarifa + (int)$ruta->ValorCobertura - (int)$ruta->DescuOperativo;
+                    			    ?>
+                			        <tr>
+                    					<td>
+                    						<div class="cont-input check-2">
+                    							<input class="checkbox-1" type="checkbox" value="Acepto" onclick="acumularValor($(this))"/>
+                    							<span class="icon-checkmark-1"></span>
+                    						</div>
+                    					</td>
+                    					<td><p class="txt-3" nRodamiento="<?php echo $ruta->NumeroRodamiento; ?>" idRuta="<?php echo $ruta->IdRuta; ?>" ruta="<?php echo $ruta->Ruta; ?>" servicio="<?php echo $ruta->Servicio; ?>" referencia="<?php echo $ruta->Servicio . ": " . $ruta->Ruta; ?>" valor="<?php echo (int)$valorRuta; ?>" idTarifa="<?php echo $ruta->IdTarifa; ?>" puestosLibres="<?php echo $ruta->PuestosLibres; ?>" id="valorPasaje" identificador="Regreso">
+                    					$<?php echo (int)$valorRuta; ?>
+                    					</p></td>
+                    					<td>
+                    					    <h3 class="txt-4">Hora de salida</h3>
+                    					    <h4 class="txt-5" id="dataFechaRegreso" data="<?php echo $fechaRegreso; ?>"><?php echo $fechaRegreso; ?></h4>
+                    					    <h4 class="txt-5" id="dataHoraRegreso" data="<?php echo $dateRegreso; ?>"><?php echo $dateRegreso; ?></h4>
+                					    </td>
+                    					<td><img class="img-company" src="/images/companies/rapido-ochoa.jpg" alt="Rapido Ochoa" width="100px" height="50px" /></td>
+                    					<td><h3 class="txt-4">Sillas disponibles</h3><h4 class="txt-5"><?php echo $ruta->PuestosLibres; ?></h4></td>
+                    					<td>
+                    					    <h3 class="txt-4">Niños</h3>
+                    					    <div class="cont-input check-2">
+                    							<input class="checkbox-1" type="checkbox" value="infantes" id="infantesRegreso" onclick="setInfantes($(this))" />
+                    							<span class="icon-checkmark-1"></span>
+                    						</div>
+                					    </td>
+                    				</tr>
+                			    <?php
+                			    endforeach;
+            			    elseif (count($rutasDestino->Table) == 1):
+            			        $ruta = $rutasDestino->Table;
+            			        $date = new DateTime($ruta->Fecha);
+            			        $fechaRegreso = $date->format("d/m/Y");
+            			        $dateDestino = $date->format("H:i:s");
+            			        $valorRuta = (int)$ruta->Tarifa + (int)$ruta->ValorCobertura - (int)$ruta->DescuOperativo;
+            			        ?>
+                			    <tr>
+                					<td>
+                						<div class="cont-input check-2">
+                							<input class="checkbox-1" type="checkbox" value="Acepto" onclick="acumularValor($(this))" />
+                							<span class="icon-checkmark-1"></span>
+                						</div>
+                					</td>
+                					<td><p class="txt-3" nRodamiento="<?php echo $ruta->NumeroRodamiento; ?>" idRuta="<?php echo $ruta->IdRuta; ?>" ruta="<?php echo $ruta->Ruta; ?>" servicio="<?php echo $ruta->Servicio; ?>" referencia="<?php echo $ruta->Servicio . ": " . $ruta->Ruta; ?>" valor="<?php echo (int)$valorRuta; ?>" idTarifa="<?php echo $ruta->IdTarifa; ?>" puestosLibres="<?php echo $ruta->PuestosLibres; ?>" id="valorPasaje" identificador="Regreso">
+                					$<?php echo (int)$valorRuta; ?>
+                					</p></td>
+                					<td>
+                					    <h3 class="txt-4">Hora de salida</h3>
+                					    <h4 class="txt-5" id="dataFechaRegreso" data="<?php echo $fechaRegreso; ?>"><?php echo $fechaRegreso; ?></h4>
+                					    <h4 class="txt-5" id="dataHoraRegreso" data="<?php echo $dateDestino; ?>"><?php echo $dateDestino; ?></h4>
+            					    </td>
+                					<td><img class="img-company" src="/images/companies/rapido-ochoa.jpg" alt="Rapido Ochoa" width="100px" height="50px" /></td>
+                					<td><h3 class="txt-4">Sillas disponibles</h3><h4 class="txt-5"><?php echo $ruta->PuestosLibres; ?></h4></td>
+                					<td>
+                					    <h3 class="txt-4">Niños</h3>
+                					    <div class="cont-input check-2">
+                							<input class="checkbox-1" type="checkbox" value="infantes" id="infantesRegreso" onclick="setInfantes($(this))" />
+                							<span class="icon-checkmark-1"></span>
+                						</div>
+            					    </td>
+                				</tr>
+            			    <?php
+            			    elseif (count($rutasDestino->Table) < 1 || $rutasDestino = ""):
+            			    ?>
+            			        <tr>
+                					<td><p class="txt-3" >En este momento no tenemos rutas disponibles, por favor intenta nuevamente.</p></td>
+                				</tr>
+            			    <?php
+            			    endif;
+        			    endif;
+        			    ?>
+        			</table>
+        		</div>
+    		<?php
+    		endif;
+    		?>
+    		<div class="cont-results">
+    		    <h2 class="ttl-1">Total compra</h2>
+    			<table class="tickets-table">
+    				<tr>
+    					<td><p class="txt-3" id="totalCompra" valor="0">$0</p></td>
+    				</tr>
+    			</table>
+    		</div>
+    		<form action="/puestos/ochoa" method="post" id="formSubmit">
+    		    <input type="hidden" name="totalCompra" id="totalCompraForm" value="0" />
+    		    <input type="hidden" name="valorPasajeIda" id="valorPasajeIda" value="0" />
+    		    <input type="hidden" name="valorPasajeRegreso" id="valorPasajeRegreso" value="0" />
+    		    <input type="hidden" name="numeroRodamientoIda" id="numeroRodamientoIda" value="0" />
+    		    <input type="hidden" name="numeroRodamientoRegreso" id="numeroRodamientoRegreso" value="0" />
+    		    <input type="hidden" name="idReferenciaIda" id="idReferenciaIda" value="0" />
+    		    <input type="hidden" name="idReferenciaRegreso" id="idReferenciaRegreso" value="0" />
+    		    <input type="hidden" name="referenciaIda" id="referenciaIda" value="Envío compra de prueba" />
+    		    <input type="hidden" name="referenciaRegreso" id="referenciaRegreso" value="Envío compra de prueba" />
+    		    <input type="hidden" name="idLocalidadOrigen" id="idLocalidadOrigen" value="<?php echo $idOrigen; ?>" />
+    		    <input type="hidden" name="idLocalidadDestino" id="idLocalidadDestino" value="<?php echo $idDestino; ?>" />
+    		    <input type="hidden" name="origen-cities" id="origen-cities" value="<?php echo $cityOrigen; ?>" />
+    		    <input type="hidden" name="destino-cities" id="destino-cities" value="<?php echo $cityDestino; ?>" />
+    		    <input type="hidden" name="idRutaIda" id="idRutaIda" value="0" />
+    		    <input type="hidden" name="idRutaRegreso" id="idRutaRegreso" value="0" />
+    		    <input type="hidden" name="rutaIda" id="rutaIda" value="0" />
+    		    <input type="hidden" name="rutaRegreso" id="rutaRegreso" value="0" />
+    		    <input type="hidden" name="servicioIda" id="servicioIda" value="0" />
+    		    <input type="hidden" name="servicioRegreso" id="servicioRegreso" value="0" />
+    		    <input type="hidden" name="puestosLibresIda" id="puestosLibresIda" value="0" />
+    		    <input type="hidden" name="puestosLibresRegreso" id="puestosLibresRegreso" value="0" />
+    		    <input type="hidden" name="fechaIda" id="fechaIda" value="0" />
+    		    <input type="hidden" name="horaIda" id="horaIda" value="0" />
+    		    <input type="hidden" name="fechaRegreso" id="fechaRegreso" value="0" />
+    		    <input type="hidden" name="horaRegreso" id="horaRegreso" value="0" />
+    		    <input type="hidden" name="infantesIda" id="infantesIda" value="0" />
+    		    <input type="hidden" name="infantesRegreso" id="infantesRegreso" value="0" />
+        		<button class="btn-4 btn-continue-1">
+        			<input type="submit" value="CONTINUAR" class="btn-4" id="submitContinue" disabled />
+        		</button>
+    		</form>
+    	</section>
+    	<!--END BOOK FILTER -->
+    </div>
+    <script>
+    $("body section.main-container:first").addClass("ticket-list");
+    </script>
+</div>
+<!--END MAIN CONTENT -->

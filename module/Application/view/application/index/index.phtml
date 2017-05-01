@@ -1,0 +1,148 @@
+<!--START MAIN CONTENT -->
+<div class="main-content">
+    <!--START WEATHER CONTENT -->
+    <?php echo $this->partial("application/comun/weather-content.phtml"); ?>
+    <!--END WEATHER CONTENT -->
+    <!--START BOOK TRIP -->
+    <div class="book-trip-container">
+    	<section class="book-trip-search container">
+    		<div class="ticket-options">
+    			<div class="btn-1 active" onclick="activarSoloIda($(this))">
+    				<span class="icon-tickets-1"></span>PASAJE DE IDA Y REGRESO
+    			</div>
+    			<div class="btn-1" onclick="activarSoloIda($(this))">
+    				<span class="icon-ticket-1"></span>PASAJE DE SOLO IDA
+    			</div>
+    		</div>
+
+    		<form action="/tarifas/ochoa" method="post">
+        		<div class="form-content">
+        			<div class="column-destination">
+        				<p class="txt-1">
+        					<span class="icon-marker-1"></span>Ciudad de origen
+        				</p>
+        				<input required type="text" name="origen-cities" class="inp-txt-1" value="" idcity="" placeholder="Origen: " list="cities" id="origen-cities" />
+        				<input type="hidden" name="id-origen-cities" value="" id="id-origen-cities" />
+        				<p class="txt-1">
+        					<span class="icon-marker-1"></span>Ciudad de destino
+        				</p>
+        				<span id="loading-ciudades"></span>
+        				<input required type="text" name="destino-cities" class="inp-txt-1" value="" idcity="" placeholder="Destino: " id="destino-cities" list="destino-cities" disabled />
+        				<input type="hidden" name="id-destino-cities" value="" id="id-destino-cities" />
+        			</div>
+        			<div class="column-dates">
+        				<div class="date-container" id="datetimepickerIda">
+        					<p class="txt-1">
+        						<span class="icon-calendar-1"></span>Ida
+        					</p>
+        					<div class="date-selection start">
+        						<p class="txt-month"></p>
+        						<p class="txt-date"></p>
+        						<p class="txt-day"></p>
+        					</div>
+        				</div>
+        				<input type="hidden" name="dateIda" id="dateIda" />
+        				<div class="date-container" id="datetimepickerRegreso">
+        					<p class="txt-1">
+        						<span class="icon-calendar-1"></span>Regreso
+        					</p>
+        					<div class="date-selection end">
+        						<p class="txt-month"></p>
+        						<p class="txt-date"></p>
+        						<p class="txt-day"></p>
+        					</div>
+        				</div>
+        				<input type="hidden" name="dateRegreso" id="dateRegreso" />
+        			</div>
+        			<div class="column-people">
+        				<p class="txt-1">
+        					<span class="icon-add-person-1"></span>Personas
+        				</p>
+        				<div class="travelers-counter">
+        					<span class="btn-counter btn-add" onclick="javascript:sumarPasajeros();">+</span>
+        					<p class="txt-number">
+        						2
+        					</p>
+        					<input type="hidden" name="passNumber" id="passNumber" />
+        					<span class="btn-counter btn-sub" onclick="javascript:disminuirPasajeros();">-</span>
+        				</div>
+        				<div class="cont-input">
+        					<input required class="checkbox-1" type="checkbox" value="Acepto" name="accept-tyc" onclick="$('#buscarBtn').removeAttr('disabled');"/>
+        					<span class="icon-checkmark-1"></span>
+        				</div>
+        				<a class="link-1 inline-popups" href="#terminos-popup" data-effect="mfp-3d-unfold"> Acepto los Términos y condiciones </a>
+        			</div>
+        			<!-- <div class="btn-2" disabled onclick="buscarDisponibilidad()"> -->
+        			<div>
+        			    <input type="hidden" name="tipo-pasaje" value="1" id="tipo-pasaje" />
+        				<input type="submit" class="btn-2 btn-continue-1" id="buscarBtn" value="Buscar"/>
+        			</div>
+        		</div>
+    		</form>
+    	</section>
+    </div>
+    <!--END BOOK TRIP -->
+    <!--START POSTS -->
+    <section class="posts-container-1">
+        <div class="container">
+        	<article class="post-1">
+        		<a href="#tiquetes-popup" class="inline-popups" data-effect="mfp-3d-unfold">
+        		    <img src="/images/img-promo-1.jpg" alt="Compra tus pasajes f&aacute;cil y rápido" />
+        		    <div class="container-ttl">
+        		        <h1 class="txt-1"> Compra tus pasajes f&aacute;cil y rápido </h1><span class="icon-add-1"></span>
+        	        </div>
+                </a>
+        	</article>
+        	<article class="post-1">
+        		<a href="#trans-popup" class="inline-popups" data-effect="mfp-3d-unfold">
+        		    <img src="/images/img-promo-2.jpg" alt="Transporte Especial para turismo" />
+        		    <div class="container-ttl">
+        		        <h1 class="txt-1"> Transporte Especial para turismo </h1><span class="icon-add-1"></span>
+        	        </div>
+                </a>
+        	</article>
+        	<article class="post-1">
+        		<a href="#nuevos-popup" class="inline-popups" data-effect="mfp-3d-unfold">
+        		    <img src="/images/img-promo-3.jpg" alt="Nuevos destinos para tus vacaciones" />
+        		    <div class="container-ttl">
+        		        <h1 class="txt-1"> Nuevos destinos para tus vacaciones </h1><span class="icon-add-1"></span>
+        	        </div>
+                </a>
+        	</article>
+        	<article class="post-1">
+        		<a href="#agua-popup" class="inline-popups" data-effect="mfp-3d-unfold">
+        		    <img src="/images/img-promo-4.jpg" alt="Agua Zenith Pluss" />
+            		<div class="container-ttl">
+            			<h1 class="txt-1"> Agua Zenith Pluss </h1><span class="icon-add-1"></span>
+            		</div>
+        		</a>
+        	</article>
+        </div>
+    </section>
+    <!--END POSTS -->
+    <script type="text/javascript">
+    $("body section.main-container:first").addClass("home");
+    </script>
+
+    <div id="terminos-popup" class="white-popup mfp-with-anim mfp-hide">
+        <?php echo $this->partial("application/comun/terminos.phtml"); ?>
+        <p><a class="popup-modal-dismiss" href="#">Cerrar</a></p>
+    </div>
+    <div id="trans-popup" class="white-popup mfp-with-anim mfp-hide">
+        <?php echo $this->partial("application/comun/transporte-especial.phtml"); ?>
+        <p><a class="popup-modal-dismiss" href="#">Cerrar</a></p>
+    </div>
+    <div id="tiquetes-popup" class="white-popup mfp-with-anim mfp-hide">
+        <?php echo $this->partial("application/comun/tiquetes-facil.phtml"); ?>
+        <p><a class="popup-modal-dismiss" href="#">Cerrar</a></p>
+    </div>
+    <div id="nuevos-popup" class="white-popup mfp-with-anim mfp-hide">
+        <?php echo $this->partial("application/comun/nuevos-destinos.phtml"); ?>
+        <p><a class="popup-modal-dismiss" href="#">Cerrar</a></p>
+    </div>
+    <div id="agua-popup" class="white-popup mfp-with-anim mfp-hide">
+        <?php echo $this->partial("application/comun/agua-zenith.phtml"); ?>
+        <p><a class="popup-modal-dismiss" href="#">Cerrar</a></p>
+    </div>
+</div>
+<!--END MAIN CONTENT -->

@@ -1,0 +1,64 @@
+.header-container{
+  background: $white-1;
+  padding: 10px;
+  .main-logo{
+    font-size: 0;
+    img{
+      max-width: 290px;
+    }
+  }
+  .main-logo,
+  .info{
+    display: inline-block;
+    width: 49%;
+    vertical-align: middle;
+  }
+  .info{
+    text-align: right;
+  }
+}
+.info{
+  .txt-1{
+    color:$yellow-1;
+    font-family: 'gidole_playregular';
+    @include rem(36);
+  }
+  .txt-2{
+    color: $gray-1;
+    font-family: 'gidoleregular';
+    @include rem(13);
+  }
+}
+@media screen and (max-width:700px){
+  .header-container{
+    .main-logo{
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:600px){
+  .info{
+    .txt-1{
+      @include rem(25);
+    }
+  }
+}
+@media screen and (max-width:500px){
+  .header-container{
+    .main-logo,
+    .info{
+      width: 100%;
+      text-align: center;
+    }
+    .main-logo{
+      margin-bottom: 10px;
+      img{
+        max-width: 200px;
+      }
+    }
+    
+  }
+}

@@ -1,0 +1,32 @@
+<link rel="stylesheet" type="text/css" href="http://getbootstrap.com/dist/css/bootstrap.min.css" />
+<!--START MAIN CONTENT -->
+<div class="main-content">
+    <section class="posts-container-1">
+        <div class="container">
+            <div class="mensaje-exito">
+                <h1 class="nombre-comprador"><?php print $nombre; ?></h1>
+                <h2 class="mensaje-comprador text-center"><?php print $message; ?></h2>
+                <h2 class="id-transaction"><?php print $transaction_id; ?></h2>
+                <button class="btn btn-warning" href="/">Volver</button>
+            </div>
+        </div>
+    </section>
+</div>
+<!--END MAIN CONTENT -->
+<style>
+    .nombre-comprador{
+        font-size: 20px !important;
+        font-weight: bold;
+    }
+    .mensaje-comprador{
+        font-size: 20px !important;
+        font-weight: bold;
+    }
+    .id-transaction{
+        font-size: 20px !important;
+        font-weight: bold;
+    }
+    .mensaje-exito{
+        text-align: center;
+    }
+</style>

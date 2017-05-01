@@ -1,0 +1,153 @@
+.ticket-list-results{	
+	color: $gray-2;
+	font-family: 'gidoleregular';
+	padding-bottom: 40px;
+	.filter-options{
+		overflow: hidden;
+		.txt-1{
+			text-align: left;
+		}
+		.list-options, 
+		.txt-1{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.list-options{
+			text-align: right;
+			width: 100%;
+			li{
+				display: inline-block;
+				&:nth-child(2){
+					margin: 0 2%;
+				}
+			}			
+		}		
+	}
+	.cont-results{
+		text-align: left;
+		margin-bottom: 45px;
+		.ttl-1{
+			margin-bottom: 20px;
+			color: $gray-2;
+		}
+		.tickets-table{
+			display: table;
+			border: 0;
+			border-collapse: collapse;
+			border-spacing: 0;
+			background-color: $white-1;
+			@include border-radius(5px);
+			text-align: center;			
+			width: 100%;
+			tr{				
+				&:not(:last-child){
+					border-bottom: 1px solid $white-2;
+				}
+			}
+			td{
+				color: $gray-2;
+				padding: 10px 0 10px 10px;
+				vertical-align: middle;
+			}
+		}
+	}
+	.payment-information{
+		text-align: center;
+		display: table;
+		margin: 0 auto 60px;
+
+		.txt-1{
+			color: #999;
+			@include rem(14);
+			strong{
+				color : #444;
+			}
+		}
+		.txt-2{
+			@include rem(20);
+		}
+		.txt-3{
+			@include rem(36);
+		}
+		hr{
+			border: 0;
+			border-bottom: 1px solid #DDD;
+			margin-bottom: 15px;
+		}
+		p{
+			margin-bottom: 15px;
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
+	.ttl-1{
+		@include rem(20);
+	}
+	.txt-1{
+		@include rem(14);
+	}	
+	.txt-3{
+		@include rem(36);
+	}
+	.txt-4{
+		color: $gray-1;
+		@include rem(14);
+	}
+	.txt-5{
+		@include rem(20);
+	}
+	.txt-6{
+		@include rem(12);
+		color: #999;
+	}
+	.btn-continue-1{
+		display: table;
+		margin: 0 auto;
+		&+small{
+			text-align: center;
+			width: 100%;
+			margin-top: 10px;
+			display: inline-block;
+		}
+	}
+}
+
+
+@media screen and (max-width:700px){
+	.ticket-list-results{
+		.txt-3{
+			@include rem(22);
+		}
+		.txt-5{
+			@include rem(16)
+		}
+	}	
+}
+
+@media screen and (max-width:600px){
+	.ticket-list-results{
+		.filter-options{
+			.txt-1{
+				margin-bottom: 10px;
+			}
+		}
+		.tickets-table{
+			td{
+				&:not(:first-child){
+					width: 50%;
+					display: inline-block;
+				}
+			}
+		}
+	}	
+}
+
+@media screen and (max-width:450px){
+	.ticket-list-results{
+		.btn-3{
+			@include rem(14);
+			padding: 13px 10px;
+		}
+	}
+}

@@ -1,0 +1,49 @@
+.weather-container{
+  position: relative;
+  li{
+    img{
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+  .bx-wrapper{
+    margin-bottom: 0;
+  }
+  .txt-city{
+    color: $white-1;
+    font-family: 'gidoleregular';
+    @include rem(14);
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .weather-info{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+    text-align: center;
+  }
+}
+.weather-info{
+  
+  .txt-1{
+    color: $white-1;
+    font-family: 'gidoleregular';
+    @include rem(16);
+  }
+  .txt-2{
+    color: $white-1;
+    font-family: 'gidole_playregular';
+    @include rem(80);
+  }
+}
+@media screen and (max-width: 700px){
+  .weather-container{
+    min-height: 250px;
+    img{
+       min-height: 250px;
+    }   
+  }
+}

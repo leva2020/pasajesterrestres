@@ -1,0 +1,123 @@
+<?php
+$title = 'Inicia sesion en nuestro portal';
+$this->headTitle($title);
+?>
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script');
+    po.type = 'text/javascript';
+    po.async = true;
+    po.src = 'https://apis.google.com/js/client:plusone.js';
+    //po.src = 'https://apis.google.com/js/client:plusone.js?onload=render';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+  })();
+
+function googleRedirect(code) {
+    window.location = window.location.protocol + '//' + window.location.hostname +'/social/google-oauth2-callback/<?php echo $this->client_id; ?>/<?php echo $this->type; ?>?code='+code;
+}
+</script>
+
+<script type="text/javascript">
+$(window).load(function(){
+    $("#customBtn").click(function(){
+        startFlow("<?php echo $this->googleAppId; ?>");
+    });
+}); 
+</script>
+<!--START MAIN CONTENT -->
+<div class="main-content general-forms login-form">
+    <section class="form-container">
+
+    <?php if (empty($this->session)) : ?>
+
+        <div class="social-login">
+            <a class="btn-fb-1" href="javascript:void(0);" title="Ingresa con facebook">
+                inicia sesión con Facebook
+            </a>
+            <a class="btn-gp-1" id="customBtn" href="javascript:void(0);" title="Ingresa con google plus">
+                inicia sesión con google+
+            </a>
+        </div>
+
+        <?php
+        $form = $this->form; 
+        $form->setAttribute('action', $this->url('authentication/login',
+            array(
+                'action' => 'login',
+                'client_id' => $this->client_id,
+                'grant_type' => $this->grant_type,
+                'response_type' => $this->response_type,
+                'scope' => $this->scope, 
+                'state' => $this->state,
+                'type' => $this->type
+                )
+            )
+        ); 
+        $form->prepare(); 
+        echo $this->form()->openTag($form); ?>
+            <fieldset>
+                <?php 
+                echo $this->formHidden($form->get('csrf'));
+                echo $this->formHidden($form->get('client_id'));
+                echo $this->formHidden($form->get('grant_type'));
+                echo $this->formHidden($form->get('response_type'));
+                echo $this->formHidden($form->get('scope'));
+                echo $this->formHidden($form->get('state'));
+                ?>
+                <?php if ($this->error): ?>
+                <div class="cont-input-txt">
+                    <span class="error-1">Combinación de usuario y contraseña incorrectos.</span>
+                </div>
+                <?php endif; ?>
+                <div class="cont-input-txt">
+                    <span class="icon-person-1"></span>
+                    <?php echo $this->formInput($form->get('username')); ?>
+                    <?php
+                    echo $this->formElementErrors()
+                        ->setMessageOpenFormat('<span class="error-1">')
+                        ->setMessageSeparatorString('')
+                        ->setMessageCloseString('</span>')
+                        ->render($form->get('username'));
+                    ?>
+                </div>
+                <div class="cont-input-txt">
+                    <span class="icon-lock-1"></span>
+                    <?php echo $this->formInput($form->get('password')); ?>
+                    <?php
+                    echo $this->formElementErrors()
+                        ->setMessageOpenFormat('<span class="error-1">')
+                        ->setMessageSeparatorString('')
+                        ->setMessageCloseString('</span>')
+                        ->render($form->get('password'));
+                    ?>
+                </div>
+
+                <div class="cont-input">
+                    <input class="checkbox-1" type="checkbox" value="Acepto"/>
+                    <span class="icon-checkmark-1"></span>
+                    <span class="txt-1">Recordarme</span>
+
+                    <a class="link-3">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <?php echo $this->formSubmit($form->get('submit')); ?>
+            </fieldset>
+            <?php echo $this->form()->closeTag();?>
+
+        <div class="register-opt">
+            <p class="txt-2">¿No tienes cuenta?<a class="link-3"> Regístrate</a></p> 
+        </div>
+    <?php else: ?>
+        <?php if ($this->type == 'lightbox') : ?>
+    <script type="text/javascript">
+    window.parent.location.reload();
+    </script>        
+        <?php else: ?>
+        Bienvenido <?php echo $this->session->first_name; ?> <?php echo $this->session->last_name; ?>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    </section>
+</div>
+<!--END MAIN CONTENT -->

@@ -1,0 +1,41 @@
+<section class="book-trip-search-filter">
+	<div class="container">
+		<form action="/tarifas/ochoa" method="post" class="query-tickets">
+			<ul class="list-inp-loc">
+				<li class="cont-inp-1">
+					<span class="icon-marker-1"></span>
+					<input required type="text" name="origen-cities" class="inp-txt-1" value="<?php echo $cityOrigen; ?>" idcity="<?php echo $idOrigen; ?>" placeholder="Ciudad de origen: " list="cities" id="origen-cities" />
+					<input type="hidden" name="id-origen-cities" value="<?php echo $idOrigen; ?>" id="id-origen-cities" />
+				</li>
+				<li class="cont-inp-1">
+					<span class="icon-marker-1"></span>
+					<span id="loading-ciudades"></span>
+					<input type="text" name="destino-cities" class="inp-txt-1" value="<?php echo $cityDestino; ?>" idcity="<?php echo $idDestino; ?>" placeholder="Ciudad de destino: " id="destino-cities" list="destino-cities" disabled onclick="javascript:$('#tipo-pasaje').val(1);" />
+    				<input type="hidden" name="id-destino-cities" value="<?php echo $idDestino; ?>" id="id-destino-cities" />
+				</li>
+			</ul>
+			<ul class="list-inp-dates">
+				<li class="btn-calendar-1">
+				    <div class="date-selection start" id="datetimepickerIda" shortName="true">
+    					<span class="icon-calendar-1"></span>
+    					<h2 class="txt-1 txt-month">Nov</h2>
+    					<h3 class="txt-2 txt-date">30</h3>
+					</div>
+				</li>
+				<input required type="hidden" name="dateIda" id="dateIda" />
+				<li class="btn-calendar-1">
+				    <div class="date-selection end" id="datetimepickerRegreso" shortName="true">
+    					<span class="icon-calendar-1"></span>
+    					<h2 class="txt-1 txt-month">Dic</h2>
+    					<h3 class="txt-2 txt-date">2</h3>
+					</div>
+				</li>
+				<input required type="hidden" name="dateRegreso" id="dateRegreso" />
+			</ul>
+<!-- 			<div class="btn-2 btn-search"> -->
+			    <input type="hidden" name="tipo-pasaje" value="0" id="tipo-pasaje" />
+			    <input type="submit" class="btn-2 btn-search" id="buscarBtn" value="Buscar"/>
+<!-- 			</div> -->
+		</form>
+	</div>
+</section>

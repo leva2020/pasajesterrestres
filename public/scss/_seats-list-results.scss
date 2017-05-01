@@ -1,0 +1,229 @@
+.seats-list-results{
+	color: $gray-2;
+	font-family: 'gidoleregular';
+	padding-bottom: 40px;
+	.ticket-details{
+		margin-bottom: 40px;
+	}
+	.seats-position{
+		padding-right: 20px;
+		border-right: 1px solid $gray-3;
+		td{
+			@include border-radius(2px);
+			width: 15px;
+			height: 15px;
+			margin: 2.5px;
+			cursor: pointer;
+			display: block;
+			vertical-align: top;
+			text-indent: -9999em;
+			&:hover{
+				background-color: #0a8aaa;
+			}
+			&:nth-child(2n+2){
+				margin-bottom: 20px;
+			} 
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+		tr{
+			display: inline-block;
+		}
+
+	}
+	.seats-position,
+	.list-floor{
+		display: inline-block;
+		vertical-align: top;
+	}
+	.seats-position,
+	.seats-conventions{
+		.occupy{
+			background-color: #444444;
+		}
+		.free{
+			background-color: #ccc;
+		}
+		.selected{
+			background-color: #0a8aaa;
+		}
+	}
+	.seats-conventions{
+		margin-bottom: 20px;
+		span{
+			width: 15px;
+			height: 15px;
+			margin-right: 5px;
+			@include border-radius(2px);
+		}
+		span,
+		.txt-7{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.list-conventions{
+			display: table;
+		}
+		li{
+			display: table-cell;
+			width: 30%;
+		}
+	}
+	.list-floor{
+		.btn-5{
+			margin-bottom: 10px;
+		}
+	}
+	.cont-details{
+		background-color: #FAFAFA;
+		@include border-radius(5px);
+		padding: 20px;
+		position: relative;
+		[class*="details-"]{
+			display: inline-block;
+			vertical-align: top;
+		}
+		.details-1{
+			width: 70%;
+		}
+		.details-2{
+			padding: 20px;
+			text-align: center;
+			width: 29%;
+			position: absolute;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			background-color: #FFF;
+		}
+	}
+	.list-details{
+		display: table;
+		width: 100%;
+		border-bottom: 1px solid #DDD;
+		padding-bottom: 15px;
+		margin-bottom: 20px;
+		text-align: left;
+
+		li{
+			display: table-cell;
+		}
+	}
+	.seats-details{
+		[class*="column"]{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.column-people{
+			width: 28%;
+			min-width: 120px;
+			.txt-1{
+				margin-bottom: 15px;
+			}
+			.txt-number{
+				@include rem(30);
+			}
+			.travelers-counter{
+				@include border-radius(3px);
+				padding: 15px;
+			}
+		}
+		.column-seats{
+			width: 70%;
+			.txt-6{
+				display: inline-block;
+			}
+			.icon-steering-wheel-1{
+				color: $gray-3;
+				vertical-align: bottom;
+				display: inline-block;
+				margin-bottom: 3px;
+			}
+		}
+	}
+	
+
+	.ttl-1{
+		@include rem(20);
+		margin-bottom: 20px;
+	}
+	
+	.txt-2{
+		@include rem(14);
+		color: $gray-1;
+		margin-bottom: 10px;
+	}	
+	.txt-3{
+		@include rem(20);
+		color: $yellow-1;
+	}
+	.txt-4{
+		@include rem(16);
+		color: $gray-2;
+	}
+	.txt-5{
+		@include rem(34);
+		color: $gray-2; 
+	}
+	.txt-6{
+		@include rem(14);
+		color: $gray-2;
+	}
+	.txt-7{
+		@include rem(14);
+		color: $gray-1;
+	}
+
+	.btn-continue-1{
+		display: table;
+		margin: 0 auto;
+	}
+}
+
+@media screen and (max-width: 950px){
+	.seats-list-results{
+		.seats-details{
+			[class*="column"]{
+				display: block;
+				margin: 0 auto;
+			}
+			.column-seats{
+				width: 100%;
+			}
+		}
+		.txt-5{
+			@include rem(30);
+		}
+	}
+}
+@media screen and (max-width: 700px){
+	.seats-list-results{
+		width: 100%;
+		.seats-details{
+			.column-seats{
+				width: 292px;
+			}
+		}
+	}
+	
+}
+@media screen and (max-width: 600px){
+	.seats-list-results{
+		.txt-5{
+			@include rem(25);
+		}
+		.cont-details{
+			.details-1{
+				margin-bottom: 20px;
+				width: 100%;
+			}
+			.details-2{
+				width: auto;
+				margin: 0 -20px -20px;
+				position: relative;
+				display: block;
+			}
+		}
+	}
+}

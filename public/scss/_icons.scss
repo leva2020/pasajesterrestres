@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'icons-fonts-1';
+  src:url('#{$url-location}/icons-fonts-1.woff?r9rx3i') format('woff'),
+    url('#{$url-location}/icons-fonts-1.ttf?r9rx3i') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icons-fonts-1';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-steering-wheel-1:before {
+  content: "\e60b";
+}
+.icon-compass-arrow-1:before {
+  content: "\e600";
+}
+
+.icon-facebook-1:before {
+  content: "\e601";
+}
+
+.icon-twitter-1:before {
+  content: "\e602";
+}
+.icon-google-1:before {
+  content: "\e60f";
+}
+.icon-add-1:before {
+  content: "\e603";
+}
+
+.icon-marker-1:before {
+  content: "\e604";
+}
+
+.icon-arrow-round-down-1:before {
+  content: "\e605";
+}
+
+.icon-add-person-1:before {
+  content: "\e606";
+}
+
+.icon-calendar-1:before {
+  content: "\e607";
+}
+
+.icon-ticket-1:before {
+  content: "\e608";
+}
+
+.icon-tickets-1:before {
+  content: "\e609";
+}
+
+.icon-phone-1:before {
+  content: "\e60a";
+}
+.icon-checkmark-1:before {
+  content: "\e60c";
+}
+
+.icon-lock-1:before {
+  content: "\e60d";
+}
+.icon-person-1:before {
+  content: "\e60e";
+}
+

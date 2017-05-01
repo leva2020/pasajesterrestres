@@ -1,0 +1,18 @@
+.mfp-content{
+	@include rem(14);
+	color: #444;
+
+	.mfp-with-anim{
+		padding: 0 30px;
+	}
+	h3{
+		@include rem(24);
+		color: $yellow-1;
+		text-align: center;
+		margin-bottom: 40px;
+		font-family: 'gidoleregular';	
+	}
+	a{
+		color: $yellow-1;
+	}
+}

@@ -1,0 +1,99 @@
+.book-trip-search-filter{ 
+  background-color: $yellow-1;
+  margin-bottom: 40px;
+  .container{
+    margin: 0 auto;
+    padding: 20px 0;
+  }
+  .list-inp-loc{
+    margin-right: 3%;
+    width: 50%;
+    .cont-inp-1{
+      display: inline-block;
+    }
+    .inp-txt-1{
+      width: 98%;
+    }   
+  }
+  .list-inp-dates{
+    width: 26%;
+  }
+  .btn-search,
+  .list-inp-loc,
+  .list-inp-dates{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .list-inp-loc,
+  .list-inp-dates{
+    margin-right: 4%;
+    li{
+      width: 49%;
+    }
+  }
+  .btn-search{
+    padding: 10px 30px;
+    float: right;
+  }
+}
+
+@media screen and (max-width:950px){
+  .book-trip-search-filter{
+    .container{
+      padding: 20px;
+    }
+    .list-inp-loc{
+      width: 40%;
+    } 
+    .list-inp-dates{
+      width: 30%;
+    } 
+  }
+}
+
+@media screen and (max-width:950px){
+  .book-trip-search-filter{
+    .container{
+      padding: 20px 10px;
+    }
+    .list-inp-loc{
+      width: 44%;
+    } 
+    .list-inp-dates{
+      width: 31%;
+    }
+    .list-inp-loc,
+  .list-inp-dates{
+    margin-right: 1%;
+  } 
+  }
+}
+
+@media screen and (max-width:750px){
+  .book-trip-search-filter{
+    .list-inp-loc{
+      width: 57%;
+    } 
+    .list-inp-dates{
+      width: 40%; 
+    }
+    .btn-search{
+      float: none;
+      display: block;
+      max-width: 180px;
+      margin: 10px auto 0;
+    } 
+  }
+}
+
+@media screen and (max-width:600px){
+  .book-trip-search-filter{
+    .list-inp-loc{
+      margin-bottom: 10px;
+      width: 100%;
+    } 
+    .list-inp-dates{
+      width: 100%;
+    } 
+  }
+}
